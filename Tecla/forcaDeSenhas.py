@@ -28,6 +28,9 @@ for letter in password:
         rating_lower = 1
     if letter in "#&$@%!?;:.-_=+*<>\/^~[](){}":
         rating_special = 1
+    # Eficiency
+    if rating_length == 1 and rating_digit == 1 and rating_upper == 1 and rating_lower == 1 and rating_special == 1:
+        break
 
 rating = rating_length + rating_digit + rating_upper + rating_lower + rating_special
 
