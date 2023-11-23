@@ -1,3 +1,5 @@
+# Functions
+
 def Soma(P1, P2):
     R = P1 + P2
     print(f"O resultado é {R}")
@@ -30,6 +32,8 @@ while True:
     while Selecao < 0 or Selecao > 4:
         print("Seleção inválida")
         Selecao = int(input("Selecione a opção: "))
+
+    # Process and Output
 
     if Selecao == 1:
         V1 = int(input("Primeiro valor: "))
