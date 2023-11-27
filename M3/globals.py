@@ -8,6 +8,7 @@ def Cumprimentar():
 
 def Somar():
     R = X + Y
+    global X, Y
 
 def main():
     Cumprimentar()
