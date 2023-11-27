@@ -10,6 +10,9 @@ def Multiplicacao(P1, P2):
     R = P1 * P2
 
 def Divisao(P1, P2):
+    if P1 or P2 == 0:
+        print("Error: division by 0")
+        return
     R = P1 / P2
 
 def Menu():
