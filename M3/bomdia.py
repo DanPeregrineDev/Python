@@ -1,13 +1,12 @@
 def PerguntarNome():
-    nome = input("Qual é o seu nome?: ")
-    return nome
+    Nome = input("Qual é o seu nome?: ")
+    return Nome
 
-def Cumprimentar():
-    print("Bom dia!")
+def Cumprimentar(Nome):
+    print(f"Bom dia {Nome}!")
 
 def main():
-    PerguntarNome()
-    Cumprimentar()
+    Cumprimentar(PerguntarNome())
 
 if __name__ == "__main__":
     main()
