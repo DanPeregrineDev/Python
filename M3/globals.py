@@ -8,7 +8,6 @@ def Cumprimentar():
 
 def Somar():
     R = X + Y
-    X = 0
 
 def main():
     Cumprimentar()
