@@ -2,19 +2,15 @@
 
 def Soma(P1, P2):
     R = P1 + P2
-    return R
 
 def Subtracao(P1, P2):
     R = P1 - P2
-    return R
 
 def Multiplicacao(P1, P2):
     R = P1 * P2
-    return R
 
 def Divisao(P1, P2):
     R = P1 / P2
-    return R
 
 def Menu():
     print("1 - Somar")
