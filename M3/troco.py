@@ -10,7 +10,7 @@ def troco(pagar, dinheiro):
 carteira = 100
 carteira = troco(50, carteira)
 
-if carteira != None:
-    print(f"Tem na carteira {carteira}")
-else:
+if carteira is None:
     print("Não tem dinheiro na carteira")
+else:
+    print(f"Tem na carteira {carteira}")
