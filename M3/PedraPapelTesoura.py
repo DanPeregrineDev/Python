@@ -31,8 +31,11 @@ def Result(UserInput):
     if User == 3 and AI == 3:
         return "Tesoura - EMPATE!"
 
-    # AI Error
+    # User Exit
+    if User == 4:
+        exit()
 
+    # AI Error
     if AI > 3 or AI < 1:
         return "AI ERROR"
 
@@ -42,7 +45,12 @@ def main():
         print("1 - Pedra")
         print("2 - Papel")
         print("3 - Tesoura")
+        print("4 - Sair ou Clike ENTER")
+        print("")
         Selection = int(input(""))
+        while Selection > 4 or Selection < 1:
+            print("Seleção invalida!")
+            Selection = int(input(""))
         print(Result(Selection))
 
 if __name__ == "__main__":
