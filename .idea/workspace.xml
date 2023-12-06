@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="099a6e4d-81bc-4701-9520-c76090a3d240" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/M3/JogoDoGalo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/M3/PedraPapelTesoura.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Desafio1_Modulo3/g2ex1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Desafio1_Modulo3/g2ex1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Desafio1_Modulo3/g2ex2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Desafio1_Modulo3/g2ex2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +190,7 @@
       <workItem from="1701392173358" duration="8000" />
       <workItem from="1701678717793" duration="10461000" />
       <workItem from="1701693730788" duration="484000" />
-      <workItem from="1701860962827" duration="2366000" />
+      <workItem from="1701860962827" duration="4990000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <option name="closed" value="true" />
@@ -238,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701862404435</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add">
+      <option name="closed" value="true" />
+      <created>1701863431585</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701863431585</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
