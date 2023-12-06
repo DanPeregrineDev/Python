@@ -1,5 +1,6 @@
+import random
+
 def AISelection():
-    import random
     Selection = random.randint(1, 3)
     return Selection
 
