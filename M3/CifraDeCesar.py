@@ -7,7 +7,7 @@ def Decifrador(word):
         if currentLetter == 64:
             currentLetter = 90
         newLetter = chr(currentLetter)
-        FinalWord = newLetter + FinalWord
+        FinalWord = FinalWord + newLetter
     return FinalWord
 
 def Codificador(code):
@@ -19,7 +19,7 @@ def Codificador(code):
         if currentLetter == 91:
             currentLetter = 65
         newLetter = chr(currentLetter)
-        FinalWord = newLetter + FinalWord
+        FinalWord = FinalWord + newLetter
     return FinalWord
 
 def main():
