@@ -38,7 +38,7 @@ def Result(UserInput):
 
     # AI Error
     if AI > 3 or AI < 1:
-        return "AI ERROR"
+        exit("AI ERROR")
 
 def main():
     while True:
