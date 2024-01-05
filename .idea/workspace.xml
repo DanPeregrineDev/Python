@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="099a6e4d-81bc-4701-9520-c76090a3d240" name="Changes" comment="add">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PyGame/images/ball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PyGame/images/racket1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PyGame/images/racket2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PyGame/tennis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/M3/recursividade.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/M3/yield.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M3/JogoDoGalo.py" beforeDir="false" afterPath="$PROJECT_DIR$/M3/JogoDoGalo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,6 +141,8 @@
       <workItem from="1702635748166" duration="4000" />
       <workItem from="1704276766488" duration="51000" />
       <workItem from="1704277649635" duration="558000" />
+      <workItem from="1704378383987" duration="2000" />
+      <workItem from="1704378987792" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <option name="closed" value="true" />

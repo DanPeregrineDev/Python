@@ -1,0 +1,2 @@
+def primeirosMultiplos(n, m):
+    
