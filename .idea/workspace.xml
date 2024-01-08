@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="099a6e4d-81bc-4701-9520-c76090a3d240" name="Changes" comment="add">
-      <change afterPath="$PROJECT_DIR$/M3/recursividade.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M3/yield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="099a6e4d-81bc-4701-9520-c76090a3d240" name="Changes" comment="add" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,6 +139,7 @@
       <workItem from="1704277649635" duration="558000" />
       <workItem from="1704378383987" duration="2000" />
       <workItem from="1704378987792" duration="12000" />
+      <workItem from="1704706324384" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <option name="closed" value="true" />
