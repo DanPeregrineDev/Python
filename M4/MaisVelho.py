@@ -11,10 +11,11 @@ Idades = np.empty(5, 'i')
 
 currentPerson = 0
 
-oldestPerson = Nomes[0]
+oldestPerson = Idades[0]
 
 for i in range(N_PEOPLE):
     Nomes[currentPerson] = input(f"Nome da {i}º pessoa: ")
     Idades[currentPerson] = int(input(f"Idade da {i}º pessoa: "))
 
-    if 
+    if Idades[i] > oldestPerson:
+        oldestPerson = 
