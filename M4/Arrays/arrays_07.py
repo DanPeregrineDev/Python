@@ -1,5 +1,5 @@
 """
-    Criar 2 arrays com 5 pos q o utiliz vai dar e mostrar a soma\
+    Criar 2 arrays com 5 pos q o utiliz vai dar e mostrar a soma
 """
 
 import numpy as np
