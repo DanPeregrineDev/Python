@@ -1,7 +1,7 @@
 import numpy as np 
 
-# Create an array with 5 positions
-array = np.array([15, 63, 57, 97, 3])
+# Create an empty array with 5 positions
+array = np.empty(5)
 
 # Prints the array
 print(array)
