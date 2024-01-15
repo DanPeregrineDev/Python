@@ -17,5 +17,4 @@ for i in range(N_PEOPLE):
     Nomes[currentPerson] = input(f"Nome da {i}º pessoa: ")
     Idades[currentPerson] = int(input(f"Idade da {i}º pessoa: "))
 
-    if Idades[i] > oldestPerson:
-        oldestPerson = 
+    pass
