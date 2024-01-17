@@ -1,6 +1,7 @@
 import numpy as np
 
-quantasMesas = int(input("Quantas mesas?: "))
+print("Quantas mesas?")
+quantasMesas = int(input(""))
 
 mesas = np.empty(quantasMesas, 'i')
 
@@ -11,6 +12,7 @@ for i in range(len(mesas)):
     mesas[i] = lugares
 
 while True:
+    print("")
     print("1 - Entrada de clientes")
     print("2 - Saida de clientes")
     print("3 - Terminar progama")
