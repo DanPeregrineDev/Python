@@ -27,7 +27,10 @@ if TipoDeChamada == "VÍDEO" or TipoDeChamada == "VIDEO":
 
 # Converter para minutos
 
-Minutos = Duracao // 60
+if Duracao < 60:
+    Minutos = 1
+else:
+    Minutos = Duracao // 60
 
 # Total
 
