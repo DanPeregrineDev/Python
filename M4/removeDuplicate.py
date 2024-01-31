@@ -1,12 +1,17 @@
 import numpy as np
 
-arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-fArr = np.zeros(10, 'i')
+def remDuplicate(nums):
+    temp = np.zeros(len(nums))
+    pos = 0
 
-def remDuplicate(array):
-    for i in range(len(array)):
-        if i in array:
+    for i in range(len(nums)):
+        if nums[i] in temp:
             continue
-        fArr = array[i]
+        else:
+            temp[pos] = nums[i]
+            pos += 1
 
-print(remDuplicate(arr))
+    return temp
+
+nums_repetidos = np.array([1, 2, 2, 3, 3, 3, 4])
+print(remDuplicate(nums_repetidos))
