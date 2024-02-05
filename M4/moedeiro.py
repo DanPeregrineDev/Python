@@ -17,9 +17,13 @@ if change > 0:
     print(f"Vao receber {change:.2f}€ de troco")
 
 while change > 0:
+    oldChange = change
     for i in range(data.shape[0], -1, -1):
         if data[i, 0] <= change and data[i, 1] > 0:
             data[i, 1] -= 1
             print(f'Recebeu uma moeda de {data[i, 0]}')
             change -= data[i, 1]
             break
+    if oldChange == change:
+        print("Não tenho mais moedas")
+        break
