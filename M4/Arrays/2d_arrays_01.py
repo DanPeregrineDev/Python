@@ -1,11 +1,13 @@
 import numpy
 import random
 
-arr = numpy.zeroes((3, 3), 'i')
+arr = numpy.zeros((3, 3), 'i')
 
-for l in range(2):
-    for c in range(2):
-        t = random.randint(1, 100)
-        arr[c] = t
+def preenche(matriz):
+    for l in range(matriz.shape[0]):
+        for c in range(matriz.shape[1]):
+            t = random.randint(1, 100)
+            matriz[c] = t
+    return matriz
 
-print(arr)
+print(preenche(arr))
