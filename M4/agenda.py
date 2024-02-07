@@ -5,11 +5,23 @@ nMax = int(input("Numero máximo de contactos: "))
 contactos = numpy.zeros((nMax, 2), 'U50')
 
 def verContactos():
-    print(contactos)
+    print("")
+    for l in range(nMax):
+        if contactos[l, 0] == "":
+            print("''")
+        else:
+            print(l + 1, "|", contactos[l, 0], "-", contactos[l, 1])
 
 def adicionarContactos(nome, nTelm):
 
+    sucess = False
+
     nome = nome.capitalize()
+
+    for l in range(nMax):
+        if contactos[l, 0] == nome:
+            print("Contacto já existe! (Opção 4 para alterar o contacto)")
+            return sucess
     
     for l in range(nMax):
         if contactos[l, 0] != "":
@@ -17,7 +29,8 @@ def adicionarContactos(nome, nTelm):
         else:
             contactos[l, 0] = nome
             contactos[l, 1] = nTelm
-            return
+            sucess = True
+            return sucess
     print("")
     print("A agenda está cheia!")
 
@@ -46,7 +59,7 @@ def removerContactos(nome):
 
     nome = nome.capitalize()
 
-    if nome == "Cancelar":
+    if nome == "Cancelar" or nome == "":
         return
     
     for l in range(nMax):
@@ -79,7 +92,12 @@ def main():
         if selection == 3:
             nome = input("Escreva o nome do contacto: ")
             nTelm = int(input("Escreva o numero de telemóvel do contacto: "))
-            adicionarContactos(nome, nTelm)
+            sucesso = adicionarContactos(nome, nTelm)
+            verContactos()
+            print("")
+
+            if sucesso == False:
+                print("Erro ao adicionar contacto (Nome já existente!)")
 
         if selection == 4:
             nome = input("Escreva o nome do contacto que deseja alterar (Escreva 'Cancelar' para cancelar): ")
