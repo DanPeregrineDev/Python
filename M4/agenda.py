@@ -32,8 +32,6 @@ def adicionarContactos(nome, nTelm):
             contactos[l, 1] = nTelm
             sucess = True
             return sucess
-    print("")
-    print("A agenda está cheia!")
 
 
 def procurarContacto(nome):
@@ -99,7 +97,7 @@ def main():
             print("")
 
             if not sucesso:
-                print("Erro ao adicionar contacto (Nome já existente!)")
+                print("Erro ao adicionar contacto (Agenda cheia ou nome já existente)")
 
         if selection == 4:
             nome = input("Escreva o nome do contacto que deseja alterar (Escreva 'Cancelar' para cancelar): ")
