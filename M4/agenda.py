@@ -4,6 +4,7 @@ nMax = int(input("Numero máximo de contactos: "))
 
 contactos = numpy.zeros((nMax, 2), 'U50')
 
+
 def verContactos():
     print("")
     for l in range(nMax):
@@ -12,8 +13,8 @@ def verContactos():
         else:
             print(l + 1, "|", contactos[l, 0], "-", contactos[l, 1])
 
-def adicionarContactos(nome, nTelm):
 
+def adicionarContactos(nome, nTelm):
     sucess = False
 
     nome = nome.capitalize()
@@ -22,7 +23,7 @@ def adicionarContactos(nome, nTelm):
         if contactos[l, 0] == nome:
             print("Contacto já existe! (Opção 4 para alterar o contacto)")
             return sucess
-    
+
     for l in range(nMax):
         if contactos[l, 0] != "":
             continue
@@ -34,8 +35,8 @@ def adicionarContactos(nome, nTelm):
     print("")
     print("A agenda está cheia!")
 
-def procurarContacto(nome):
 
+def procurarContacto(nome):
     nome = nome.capitalize()
 
     for l in range(nMax):
@@ -44,8 +45,8 @@ def procurarContacto(nome):
     print("")
     print("Contacto não encontrado!")
 
-def alterarContactos(nome, nTelm):
 
+def alterarContactos(nome, nTelm):
     nome = nome.capitalize()
 
     for l in range(nMax):
@@ -55,13 +56,13 @@ def alterarContactos(nome, nTelm):
     print("")
     print("Contacto não encontrado!")
 
-def removerContactos(nome):
 
+def removerContactos(nome):
     nome = nome.capitalize()
 
     if nome == "Cancelar" or nome == "":
         return
-    
+
     for l in range(nMax):
         if contactos[l, 0] == nome:
             contactos[l, 0] = ""
@@ -69,6 +70,7 @@ def removerContactos(nome):
             return
     print("")
     print("Contacto não encontrado!")
+
 
 def main():
     while True:
@@ -96,7 +98,7 @@ def main():
             verContactos()
             print("")
 
-            if sucesso == False:
+            if not sucesso:
                 print("Erro ao adicionar contacto (Nome já existente!)")
 
         if selection == 4:
@@ -111,6 +113,7 @@ def main():
         if selection == 5:
             nome = input("Escreva o nome do contacto que deseja remover (Escreva 'Cancelar' para cancelar): ")
             removerContactos(nome)
+
 
 if __name__ == "__main__":
     main()
