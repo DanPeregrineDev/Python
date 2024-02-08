@@ -1,8 +1,12 @@
 def largest(tuplo):
-    maior=max(tuplo)
-    return maior
+    largest = tuplo[0]
+    for i in range (len(tuplo)):
+        if len(tuplo[i]) > len(largest):
+            largest = tuplo[i]
+    return largest
 
-nomes = ("maria","antónio","carla")
-print(largest(nomes))
+cores_primarias = ("Vermelho", "Verde", "Azul")
+cores_secundarias = ("Laranja", "Violeta", "Amarelo")
 
-#TODO not working
+cores = cores_primarias + cores_secundarias
+print(largest(cores))
