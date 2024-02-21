@@ -41,7 +41,10 @@ def listar_livros(biblioteca, nLivros):
                 if livro['nome_leitor'] == "":
                     livro['nome_leitor'] = "Nenhum"
 
-                print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível?: {livro['disponivel']} | Leitor: {livro['nome_leitor']}")
+                if livro['disponivel'] == True:
+                    print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível: {colored(livro['disponivel'], "green")} | Leitor: {livro['nome_leitor']}")
+                elif livro['disponivel'] == False:
+                    print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível: {colored(livro['disponivel'], "red")} | Leitor: {livro['nome_leitor']}")
                 print("")
 
     if selection == 2:
@@ -52,7 +55,7 @@ def listar_livros(biblioteca, nLivros):
                     if livro['nome_leitor'] == "":
                         livro['nome_leitor'] = "Nenhum"
 
-                    print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível?: {livro['disponivel']} | Leitor: {livro['nome_leitor']}")
+                    print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível?: {colored(livro['disponivel'], "green")} | Leitor: {livro['nome_leitor']}")
                     print("")
 
     if selection == 3:
@@ -63,7 +66,7 @@ def listar_livros(biblioteca, nLivros):
                     if livro['nome_leitor'] == "":
                         livro['nome_leitor'] = "Nenhum"
 
-                    print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível?: {livro['disponivel']} | Leitor: {livro['nome_leitor']}")
+                    print(f"ID: {livro['id_livro']} | Titulo: '{livro['titulo']}' | Disponível?: {colored(livro['disponivel'], "red")} | Leitor: {livro['nome_leitor']}")
                     print("")
 
 
@@ -78,9 +81,10 @@ def emprestar_livro(biblioteca):
             if livro['id_livro'] == idLivro:
                 livro['disponivel'] = False
                 livro['nome_leitor'] = nome
-    
-    cprint("Sucesso", "green")
-    return
+                cprint("Sucesso", "green")
+                return
+    print("")
+    cprint(f"Não existe um livro com o id {idLivro}", "red")
 
 
 #Função que torna o livro disponível e apaga o nome do leitor
@@ -92,9 +96,10 @@ def devolver_livro(biblioteca):
             if livro['id_livro'] == idLivro:
                 livro['disponivel'] = True
                 livro['nome_leitor'] = ""
-
-    cprint("Sucesso", "green")
-    return
+                cprint("Sucesso", "green")
+                return
+    print("")
+    cprint(f"Não existe um livro com o id {idLivro}", "red")
 
 
 #Função que apresenta as opções ao utilizador e devolve a sua escolha
