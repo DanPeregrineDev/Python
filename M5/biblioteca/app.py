@@ -20,8 +20,16 @@ def emprestar_livro():
 
 
 #Função que torna o livro disponível e apaga o nome do leitor
-def devolver_livro():
-    pass
+def devolver_livro(biblioteca):
+    idLivro = input("Qual o id do livro?: ")
+
+    for livros in biblioteca:
+        if biblioteca[livros[0]] == idLivro:
+            biblioteca[livros[2]] = True
+            biblioteca[livros[3]] = ""
+
+    print("Sucesso")
+    return
 
 
 #Função que apresenta as opções ao utilizador e devolve a sua escolha
@@ -56,20 +64,22 @@ def main():
     MAX_ITEMS=100
     livros =np.empty(MAX_ITEMS,dtype=object)
     nr_livros=inicializar(livros)
-    selecao = menu()
-
-    if selecao == 1:
-        pass
-
-    if selecao == 2:
-        pass
-
-    if selecao == 3:
-        pass
-
-    if selecao == 4:
-        pass
     
+    while True:
+        selecao = menu()
+
+        if selecao == 1:
+            pass
+
+        if selecao == 2:
+            pass
+
+        if selecao == 3:
+            pass
+
+        if selecao == 4:
+            devolver_livro(livros)
+
     #continuar aqui
 
 # Ponto de entrada do programa (main loop)
