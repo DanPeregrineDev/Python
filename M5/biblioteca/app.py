@@ -101,24 +101,29 @@ def devolver_livro(biblioteca):
     print("")
     cprint(f"Não existe um livro com o id {idLivro}", "red")
 
+#Função que remove o livro da biblioteca, apagando todos os dados do livro
+def remover_livro():
+    pass
+
 
 #Função que apresenta as opções ao utilizador e devolve a sua escolha
 def menu():
 
     selecao = 0
 
-    while selecao > 4 or selecao < 1:
+    while selecao > 5 or selecao < 1:
         print("")
         print("1 - Adicionar livro")
         print("2 - Listar livros")
         print("3 - Tornar estado do livro como Emprestado")
         print("4 - Tornar estado do livro como Devolvido")
+        print("5 - Remover livro")
         print("")
     
         selecao = int(input(""))
         print("")
 
-        if selecao > 4 or selecao < 1:
+        if selecao > 5 or selecao < 1:
             cprint("Seleção inválida!", "red")
 
     return selecao
@@ -154,6 +159,10 @@ def main():
 
         if selecao == 4:
             devolver_livro(livros)
+
+        if selecao == 5:
+            remover_livro(livros)
+            nr_livros -= 1
 
     #continuar aqui
 
