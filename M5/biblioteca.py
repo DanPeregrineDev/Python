@@ -167,5 +167,6 @@ def main():
     #continuar aqui
 
 # Ponto de entrada do programa (main loop)
+            
 if __name__ == "__main__":
     main()
