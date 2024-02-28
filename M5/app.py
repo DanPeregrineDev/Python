@@ -45,8 +45,21 @@ def emprestar_livro(livros):
         print("Esse id de livro nao existe")
 
 #Função que torna o livro disponível e apaga o nome do leitor
-def devolver_livro():
-    pass
+def devolver_livro(livros):
+    # Ler o id_livro a devolver
+    id_livro = int(input("Qual o id do livro a devolver: "))
+
+    # Procurar livro
+    for livro in livros:
+        # Se existir ler alterar o estado
+        if id_livro == livro["id_livro"]:
+            if livro["disponivel"] == True:
+                print("Livro ja foi devolvido")
+                return
+            livro["nome_leitor"] = ""
+            livro["disponivel"] = True
+            return
+        print("Esse id de livro nao existe")
 
 #Função que apresenta as opções ao utilizador e devolve a sua escolha
 def menu():
