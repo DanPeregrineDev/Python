@@ -27,8 +27,22 @@ def listar_livros(livros):
             print("#" * 20)
 
 # Função que muda o estado do livro e regista o nome do leitor
-def emprestar_livro():
-    pass
+def emprestar_livro(livros):
+    # Ler o id_livro a emprestar
+    id_livro = int(input("Qual o id do livro emprestar: "))
+
+    # Procurar livro
+    for livro in livros:
+        # Se existir ler o nome do leitor e alterar o estado
+        if id_livro == livro["id_livro"]:
+            if livro["disponivel"] == False:
+                print("Livro esta emprestado")
+                return
+            nome = input("Qual o leitor: ")
+            livro["nome_leitor"] = nome
+            livro["disponivel"] = False
+            return
+        print("Esse id de livro nao existe")
 
 #Função que torna o livro disponível e apaga o nome do leitor
 def devolver_livro():
