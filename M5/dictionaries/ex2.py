@@ -9,5 +9,19 @@
     - A situação: APROVADO se média maior ou igual a 10 e REPROVADO nos restantes casos.
 """
 
-def notas():
+def notas(notas):
     dicionario = {}
+
+    dicionario['Numero de notas'] = len(notas)
+    dicionario['Melhor nota'] = max(notas)
+    dicionario['Pior nota'] = min(notas)
+    dicionario['Media das notas'] = sum(notas) / len(notas)
+
+    if dicionario['Media das notas'] >= 10:
+        dicionario['Situacao'] = "APROVADO"
+    elif dicionario['Media das notas'] < 10:
+        dicionario['Situacao'] = "REPROVADO"
+
+    return dicionario
+
+print(notas([1, 10, 12, 4, 9, 14]))
