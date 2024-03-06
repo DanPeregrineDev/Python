@@ -39,11 +39,13 @@ for i in turma:
 
 print("")# Calcular e mostrar qual o aluno com melhor media
 
-for i in turma:
+melhor = 0
 
-    somas = []
-
-    for notas in turma[i].values():
-        somas.append(notas)
-
-    print(soma)
+for nProcesso, notas in turma.items():
+    notasAluno = notas.values()
+    media = sum(notasAluno) / len(notasAluno)
+    
+    if media > melhor:
+        melhor = media
+        melhorNProcesso = nProcesso
+print(f"{melhorNProcesso = } | melhor media = {melhor:.2f}")
