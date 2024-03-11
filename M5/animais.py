@@ -31,3 +31,21 @@ for i in animais:
     if animais[i]['idade'] > maior:
         maior = animais[i]['idade']
 print(f"O animal mais velho tem {maior} anos")
+
+print("")
+
+soma = 0
+
+for i in animais.values():
+    soma += i['idade']
+media = soma / len(animais)
+print(f"A media da idade e: {media}")
+
+for chave, valor in animais.items():
+    if valor['idade'] > media:
+        print(chave[0])
+
+print("")
+
+for i in contagem.items():
+    print(i[0], i[1] / len(animais) * 100)
