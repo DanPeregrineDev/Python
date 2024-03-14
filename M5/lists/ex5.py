@@ -1,39 +1,26 @@
-Rato = [1900, 1912, 1924, 1936, 1948, 1960, 1972, 1984, 1996, 2008, 2020]
-Bufalo = [1901, 1913, 1925, 1937, 1949, 1961, 1973, 1985, 1997, 2009, 2021]
-Tigre = [1902, 1914, 1926, 1938, 1950, 1962, 1974, 1986, 1998, 2010, 2022]
-Coelho = [1903, 1915, 1927, 1939, 1951, 1963, 1975, 1987, 1999, 2011, 2023]
-Dragao = [1904, 1916, 1928, 1940, 1952, 1964, 1976, 1988, 2000, 2012, 2024]
-Serpente = [1905, 1917, 1929, 1941, 1953, 1965, 1977, 1989, 2001, 2013, 2025]
-Cavalo = [1906, 1918, 1930, 1942, 1954, 1966, 1978, 1990, 2002, 2014, 2026]
-Cabra = [1907, 1919, 1931, 1943, 1955, 1967, 1979, 1991, 2003, 2015, 2027]
-Macaco = [1908, 1920, 1932, 1944, 1956, 1968, 1980, 1992, 2004, 2016, 2028]
-Galo = [1909, 1921, 1933, 1945, 1957, 1969, 1981, 1993, 2005, 2017, 2029]
-Cachorro = [1910, 1922, 1934, 1946, 1958, 1970, 1982, 1994, 2006, 2018, 2030]
-Porco = [1911, 1923, 1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031]
-
 anoDoUser = int(input("Escreva o ano em que nasceu: "))
 
-if anoDoUser in Rato:
+if anoDoUser % 12 == 0:
     print("Rato")
-elif anoDoUser in Bufalo:
+elif anoDoUser % 12 + 1 == 0:
     print("Bufalo")
-elif anoDoUser in Tigre:
+elif anoDoUser % 12 + 2 == 0:
     print("Tigre")
-elif anoDoUser in Coelho:
+elif anoDoUser % 12 + 3 == 0:
     print("Coelho")
-elif anoDoUser in Dragao:
+elif anoDoUser % 12 + 4 == 0:
     print("Dragao")
-elif anoDoUser in Serpente:
+elif anoDoUser % 12 + 5 == 0:
     print("Serpente")
-elif anoDoUser in Cavalo:
+elif anoDoUser % 12 + 6 == 0:
     print("Cavalo")
-elif anoDoUser in Cabra:
+elif anoDoUser % 12 + 7 == 0:
     print("Cabra")
-elif anoDoUser in Macaco:
+elif anoDoUser % 12 + 8 == 0:
     print("Macaco")
-elif anoDoUser in Galo:
+elif anoDoUser % 12 + 9 == 0:
     print("Galo")
-elif anoDoUser in Cachorro:
+elif anoDoUser % 12 + 10 == 0:
     print("Cachorro")
-elif anoDoUser in Porco:
+elif anoDoUser % 12 + 11 == 0:
     print("Porco")
