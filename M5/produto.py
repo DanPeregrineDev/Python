@@ -1,0 +1,1 @@
+pingoDoce = {"Arroz": 1.18, "Maçã": 2.85, "Leite": 0.82, "Frango": 4.98, "Café": 22.9, "Água": 1.29}
