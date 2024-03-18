@@ -1,4 +1,10 @@
-lista = [1, 6, 2, 9, 3]
+lista = []
+
+userInput = input("Escreva os numeros (ex: 1 2 3 4 5): ")
+lista = userInput.split(" ")
+
+for i in range(len(lista)):
+    lista[i] = int(lista[i])
 
 soma = 0
 
