@@ -3,18 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
         <title>Document</title>
     </head>
     <body>
         <h1>Flask Test</h1>
         <form action="/somar" method="post">
-            X:<input type="number" name="n1" required/>
-            <br>
-            Y:<input type="number" name="n2" required/>
-            <br>
-            <input type="submit" value="somar"/>
+            <div class="panel">
+                <p class="valLabel">Value 1</p>
+                <input type="number" name="n1" class="valInput" required/>
+                <br>
+                <p class="valLabel">Value 2</p>
+                <input type="number" name="n2" class="valInput" required/>
+                <br>
+                <input type="submit" value="somar" class="submit"/>
+            </div>
         </form>
-        {{ resultado }}
+        <p class="result">{{ resultado }}</p>
     </body>
 </html>

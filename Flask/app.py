@@ -6,6 +6,7 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+
 @app.route("/somar", methods=["POST"])
 def somar():
     if request.form.get("n1") == "" or request.form.get("n2") == "":
