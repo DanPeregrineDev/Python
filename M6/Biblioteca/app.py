@@ -22,7 +22,7 @@ def menuPrincipal():
         if op == 5:
             break
         elif op == 1:
-            pass
+            livros.menuLivros()
         elif op == 2:
             pass
         elif op == 3:
@@ -33,7 +33,7 @@ def menuPrincipal():
 
 def main():
     if DEBUG:
-        pass
+        livros.configurar()
     menuPrincipal()
 
 if __name__ == "__main__":

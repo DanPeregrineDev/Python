@@ -15,6 +15,7 @@ exemploLivros = [
 def configurar():
     livros.extend(exemploLivros)
 
+
 def menuLivros():
     while True:
         utils.mostrarMenu("Menu livros", ["Adicionar", "Listar", "Editar", "Apagar", "Voltar"])
@@ -23,10 +24,46 @@ def menuLivros():
         if op == 5:
             break
         if op == 1:
-            pass
+            adicionar()
         if op == 2:
-            pass
+            listar()
         if op == 3:
             pass
         if op == 4:
             pass
+
+def adicionar():
+    nome = utils.lerTexto("Nome do livro: ", 3)
+
+    autor = utils.lerTexto("Nome do autor: ", 3)
+
+    ano = utils.lerNumero("Ano de edição: ")
+
+    editora = utils.lerTexto("Editora: ", 3)
+
+    id = 1
+    if len(livros) > 0:
+        id = livros[len(livros) - 1]['id'] + 1
+
+    novo = {
+        'id': id,
+        'nome': nome,
+        'autor': autor,
+        'ano': ano,
+        'editora': editora,
+        'estado': 'disponivel',
+        'leitor': None,
+        'nEmprestimos': 0
+    }
+
+    livros.append(novo)
+    print(f"Livro adicionado com sucesso. Tem {len(livros)} livros.")
+
+
+def listar():
+    print("#" * 40)
+    print("Lista de livros")
+    print("#" * 40)
+    for livro in livros:
+        print(f"Id: {livro['id']} | Nome: {livro['nome']} | Autor: {livro['autor']} | Ano: {livro['ano']} | Estado: {livro['estado']}")
+        print("-" * 40)
