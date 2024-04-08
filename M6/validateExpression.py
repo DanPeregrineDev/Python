@@ -1,47 +1,25 @@
 UserInput = input("Escreva a expressão: ")
 
-parenteses = 0
-parentesesRetos = 0
-parentesesCoiso = 0
+pair = {
+    '(' : ')',
+    '[' : ']',
+    '{' : '}'
+}
 
-for i in UserInput:
-    if i == "(" or i == ")":
-        parenteses += 1
-    if i == "[" or i == "]":
-        parentesesRetos += 1
-    if i == "{" or i == "}":
-        parentesesCoiso += 1
+stack = []
 
-if parenteses % 2 != 0:
-    print("Invalida")
+for c in UserInput:
+    if c in pair.keys():
+        stack.append(c)
+    elif c in pair.values():
+        if len(stack) == 0:
+            print(f"Erro na expressão em {c}")
+            break
+        else:
+            t = stack.pop()
+            if pair[t] != c:
+                print(f"Erro na expressão em {c}")
+                break
 
-if parentesesRetos % 2 != 0:
-    print("Invalida")
-
-if parentesesCoiso % 2 != 0:
-    print("Invalida")
-
-Abriu = False
-AbriuReto = False
-AbriuCoiso = False
-
-Fechou = False
-FechouReto = False
-FechouCoiso = False
-
-for i in UserInput:
-    if i == "]" and AbriuReto != True:
-        print("Invalida")
-        break
-    if i == ")" and Abriu != True:
-        print("Invalida")
-        break
-    if i == "}" and AbriuCoiso != True:
-        print("Invalida")
-        break
-    if i == "(":
-        Abriu = True
-    if i == "[":
-        AbriuReto = True
-    if i == "{":
-        AbriuCoiso = True
+if len(stack) != 0:
+    print(f"Erro na expressão! Incompleta")
