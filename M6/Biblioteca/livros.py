@@ -28,9 +28,9 @@ def menuLivros():
         if op == 2:
             listar()
         if op == 3:
-            pass
+            editar()
         if op == 4:
-            pass
+            apagar()
 
 def adicionar():
     nome = utils.lerTexto("Nome do livro: ", 3)
@@ -67,3 +67,19 @@ def listar():
     for livro in livros:
         print(f"Id: {livro['id']} | Nome: {livro['nome']} | Autor: {livro['autor']} | Ano: {livro['ano']} | Estado: {livro['estado']}")
         print("-" * 40)
+
+def getLivro(id):
+    "Pesquisa o dicionario com o id fornecido e devolve o livro ou None"
+
+    for livro in livros:
+        if livro['id'] == id:
+            return livro
+    return None
+
+
+def editar():
+    pass
+
+
+def apagar():
+    pass

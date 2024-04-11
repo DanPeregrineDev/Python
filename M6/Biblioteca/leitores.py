@@ -28,7 +28,7 @@ def menuLeitores():
         if op == 2:
             listar()
         if op == 3:
-            pass
+            editar()
         if op == 4:
             apagar()
 
@@ -59,6 +59,10 @@ def listar():
     for leitor in leitores:
         print(f"Id: {leitor['id']} | Nome: {leitor['nome']} | Email: {leitor['email']}")
         print("-" * 40)
+
+
+def editar():
+    pass
 
 
 def apagar():
