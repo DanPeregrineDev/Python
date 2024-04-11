@@ -35,6 +35,7 @@ def menuPrincipal():
 def main():
     if DEBUG:
         livros.configurar()
+        leitores.configurar()
     menuPrincipal()
 
 if __name__ == "__main__":
