@@ -11,6 +11,7 @@ Requesitos:
 
 import utils
 import livros
+import leitores
 
 DEBUG = True
 
@@ -24,7 +25,7 @@ def menuPrincipal():
         elif op == 1:
             livros.menuLivros()
         elif op == 2:
-            pass
+            leitores.menuLeitores()
         elif op == 3:
             pass
         elif op == 4:

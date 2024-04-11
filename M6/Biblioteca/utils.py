@@ -33,3 +33,19 @@ def mostrarMenu(titulo, opcoes):
         print(f"{i+1} - {opcoes[i]}")
 
     print("="*40)
+
+# Validar email
+
+def validarEmail(email):
+    arroba = 0
+    pontos = 0
+
+    for i in email:
+        if i == "@":
+            arroba += 1
+        if i == ".":
+            pontos += 1
+    
+    if arroba == 1 and pontos > 1:
+        return True
+    return False
