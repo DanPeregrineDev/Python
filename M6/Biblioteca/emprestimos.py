@@ -7,7 +7,7 @@ import utils
 import leitores
 import livros
 
-enprestimos = []
+emprestimos = []
 
 def menuEmprestimos():
     while True:
@@ -38,5 +38,31 @@ def emprestar():
 
     leitores.listar()
     idLeitor = utils.lerNumero("ID do leitor: ")
+    leitor = leitores.getLeitor(idLeitor)
 
-    
+    while leitor is None:
+        leitores.listar()
+        idLeitor = utils.lerNumero("ID do leitor: ")
+        leitor = leitores.getLeitor(idLeitor)
+
+    print(f"Emprestimo do livro {livro['nome']} ao leitor {leitor['nome']}")
+
+    dataEmprestimo = datetime.datetime.now()
+    dataDevolucao = (dataEmprestimo + datetime.timedelta(days=7)).strftime("%d/%m/%Y")
+
+    print(f"Tem de devolver o livro até {dataDevolucao}")
+
+    novo = {
+        'livro': livro,
+        'leitor': leitor,
+        'data_emprestimo': dataEmprestimo,
+        'data_devolucao': dataDevolucao,
+        'estado': 'emprestado'
+    }
+
+    livro['estado'] = 'emprestado'
+    livro['leitor'] = leitor
+
+    emprestimos.append(novo)
+
+    print("Emprestimo feito com sucesso")
