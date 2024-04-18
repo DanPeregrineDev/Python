@@ -12,7 +12,7 @@ def lerNumero(titulo):
 
 
 def lerTexto(titulo, minChar=None):
-    # Funcao para ler texto
+    """Funcao para ler texto"""
     
     temp = input(titulo)
 
@@ -24,7 +24,7 @@ def lerTexto(titulo, minChar=None):
 
 
 def mostrarMenu(titulo, opcoes):
-    # Funcao para mostrar um menu
+    """Funcao para mostrar um menu"""
     
     print("="*40)
 
@@ -39,7 +39,7 @@ def mostrarMenu(titulo, opcoes):
 
 
 def validarEmail(email):
-    # Validar email
+    """Validar email"""
     
     arroba = 0
     pontos = 0
@@ -56,7 +56,7 @@ def validarEmail(email):
 
 
 def lerEmail(texto):
-    #Ler email
+    """Ler email"""
     
     temp = input(texto)
 

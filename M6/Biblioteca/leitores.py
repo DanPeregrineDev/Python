@@ -61,6 +61,13 @@ def listar():
         print("-" * 40)
 
 
+def getLeitor(id):
+    for leitor in leitores:
+        if leitor['id'] == id:
+            return leitor
+    return None
+
+
 def editar():
     pass
 

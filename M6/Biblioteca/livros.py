@@ -18,10 +18,10 @@ def configurar():
 
 def menuLivros():
     while True:
-        utils.mostrarMenu("Menu livros", ["Adicionar", "Listar", "Editar", "Apagar", "Voltar"])
+        utils.mostrarMenu("Menu livros", ["Adicionar", "Listar", "Editar", "Apagar", "Pequisar", "Voltar"])
         op = utils.lerNumero("")
 
-        if op == 5:
+        if op == 6:
             break
         if op == 1:
             adicionar()
@@ -31,6 +31,8 @@ def menuLivros():
             editar()
         if op == 4:
             apagar()
+        if op == 5:
+            pesquisar()
 
 def adicionar():
     nome = utils.lerTexto("Nome do livro: ", 3)
@@ -69,7 +71,7 @@ def listar():
         print("-" * 40)
 
 def getLivro(id):
-    "Pesquisa o dicionario com o id fornecido e devolve o livro ou None"
+    """Pesquisa o dicionario com o id fornecido e devolve o livro ou None"""
 
     for livro in livros:
         if livro['id'] == id:
@@ -78,8 +80,70 @@ def getLivro(id):
 
 
 def editar():
-    pass
+    id = utils.lerNumero("Qual o ID do livro que quer editar?: ")
+    livro = getLivro(id)
+
+    if livro is None:
+        print("Não existe nenhum livro com o ID indicado")
+        return
+
+    print(livro)
+    print("-" * 40)
+
+    paraNaoEditar = ["id", "nEmprestimos", "leitor"]
+
+    for campo, valor in livro.items():
+        if campo in paraNaoEditar:
+            continue
+
+        print(valor)
+
+        if campo == "ano":
+            novo = utils.lerNumero(f"Novo {campo} ou enter para não alterar: ")
+        else:
+            novo = utils.lerTexto(f"Novo {campo} ou enter para não alterar: ")
+
+        if novo != "":
+            livro[campo] = novo
 
 
 def apagar():
-    pass
+    id = utils.lerNumero("Qual o ID do livro para apagar?: ")
+
+    livro = getLivro(id)
+
+    if livro is None:
+        print("Não existe o livro com o ID indicado")
+
+    if livro['estado'] != "disponivel" or livro['estado'] != "disponível":
+        print("So pode apagar o livro em que o estado é disponível")
+        return
+    
+    op = print(f"Quer remover o livro {livro['nome']}? S/N: ")
+
+    if op != "S" or op == "s":
+        return
+    
+    livros.remove(livro)
+
+    print("Livro removido com sucesso")
+
+
+def pesquisar():
+    utils.mostrarMenu("Escolha oque deseja pesquisar", ["Pelo nome", "Pelo autor", "Voltar"])
+    op = input("")
+
+    if op == 1:
+        campo = "nome"
+
+    if op == 2:
+        campo = "autor"
+
+    if op == 3:
+        return
+    
+    pesquisa = utils.lerTexto(f"{campo} a pesquisar: ")
+
+    for livro in livros:
+        if pesquisa in livro[campo]:
+            print(livro)
