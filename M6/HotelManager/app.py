@@ -32,10 +32,10 @@ def populateRooms():
     nFloors = config.availableRooms['suite']
 
     # Rooms per floor
-    singleRoomPerFloor = config.availableRooms['singleRoom'] // nFloors
-    doubleRoomPerFloor = config.availableRooms['doubleRoom'] // nFloors
-    tripleRoomPerFloor = config.availableRooms['tripleRoom'] // nFloors
-    quadripleRoomPerFloor = config.availableRooms['quadripleRoom'] // nFloors
+    singleRoomPerFloor = config.availableRooms['singleRoom'] / nFloors
+    doubleRoomPerFloor = config.availableRooms['doubleRoom'] / nFloors
+    tripleRoomPerFloor = config.availableRooms['tripleRoom'] / nFloors
+    quadripleRoomPerFloor = config.availableRooms['quadripleRoom'] / nFloors
     suitesPerFloor = nFloors
 
     roomsPerFloor = int(singleRoomPerFloor + doubleRoomPerFloor + tripleRoomPerFloor + quadripleRoomPerFloor + suitesPerFloor)
@@ -59,7 +59,12 @@ def populateRooms():
             
             room = {
                 'roomNumber': int(f"{floor}{roomNumber}"),
-                'roomType': roomType
+                'roomType': roomType,
+                'status': 'available',
+                'cleaned': True,
+                'tenant': None,
+                'checkInDate': None,
+                'checkOutDate': None
             }
 
             rooms.append(room)
