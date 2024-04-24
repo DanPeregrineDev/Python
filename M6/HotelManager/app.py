@@ -1,6 +1,7 @@
 import utils
 import config
 import checkIn
+import checkOut
 
 rooms = []
 
@@ -14,7 +15,7 @@ def mainMenu():
         if option == 1:
             checkIn.checkInMenu(rooms)
         if option == 2:
-            pass
+            checkOut.checkOutMenu(rooms)
         if option == 3:
             listMenu()
         if option == 4:
@@ -122,7 +123,7 @@ def listToCleanRooms():
 
     for room in rooms:
         if room['cleaned'] == 'Não':
-            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} | Data de entrada: {room['checkInDate']} | Data de Saída {room['checkOutDate']}")
+            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Limpo?: {room['cleaned']}")
             print("-" * 60)
 
 if __name__ == "__main__":

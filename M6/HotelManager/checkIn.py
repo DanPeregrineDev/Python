@@ -1,5 +1,4 @@
 import utils
-import config
 import app
 import datetime
 
@@ -45,7 +44,7 @@ def assignRoom(roomType, rooms):
             return room['roomNumber']
         if room['roomType'] == 'doubleRoom' and roomType == 2:
             for i in range(2):
-                t = input(f"Nome do {i + 1}º ocupante")
+                t = input(f"Nome do {i + 1}º ocupante: ")
                 
                 ocupantes.append(t)
 
@@ -57,7 +56,7 @@ def assignRoom(roomType, rooms):
             return room['roomNumber']
         if room['roomType'] == 'tripleRoom' and roomType == 3:
             for i in range(3):
-                t = input(f"Nome do {i + 1}º ocupante")
+                t = input(f"Nome do {i + 1}º ocupante: ")
                 
                 ocupantes.append(t)
 
@@ -69,7 +68,7 @@ def assignRoom(roomType, rooms):
             return room['roomNumber']
         if room['roomType'] == 'quadripleRoom' and roomType == 4:
             for i in range(4):
-                t = input(f"Nome do {i + 1}º ocupante")
+                t = input(f"Nome do {i + 1}º ocupante: ")
                 
                 ocupantes.append(t)
 
@@ -83,7 +82,7 @@ def assignRoom(roomType, rooms):
             nOcupants = utils.askNumber("Quantos ocupantes?: ")
 
             for i in range(nOcupants):
-                t = input(f"Nome do {i + 1}º ocupante")
+                t = input(f"Nome do {i + 1}º ocupante: ")
                 
                 ocupantes.append(t)
 
@@ -93,5 +92,3 @@ def assignRoom(roomType, rooms):
             room['checkInDate'] = datetime.datetime.now()
             room['checkOutDate'] = checkOutDate
             return room['roomNumber']
-        else:
-            print("Nenhum quarto disponível")
