@@ -77,12 +77,20 @@ def changeDiscout():
 
 
 def changeMaxNights():
-    t = utils.askNumber(f"Novo máximo de noites | Atual: {maxNights} (deixe vazio para voltar): ")
+    global maxNights
 
-    if t == None:
+    print(f"Mudar máximo de noites | Atual: {maxNights}")
+
+    newMaxNights = utils.askNumber()
+
+    if newMaxNights is None:
         configMenu()
 
-    t = maxNights
+    maxNights = newMaxNights
+
+    print("Máximo de noites alterado com sucesso")
+
+    configMenu()
 
 
 def listPrices():
