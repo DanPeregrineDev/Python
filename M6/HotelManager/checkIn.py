@@ -28,9 +28,9 @@ def assignRoom(roomType, rooms):
     """
     ocupantes = []
 
-    noites = utils.askNumber("Quantas noites?: ")
+    nights = utils.askNumber("Quantas noites?: ")
 
-    checkOutDate = datetime.datetime.now() + datetime.timedelta(days=noites)
+    checkOutDate = datetime.datetime.now() + datetime.timedelta(days=nights)
 
     for room in rooms:
         if room['roomType'] == 'singleRoom' and roomType == 1:
@@ -39,6 +39,7 @@ def assignRoom(roomType, rooms):
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupante
+            room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now()
             room['checkOutDate'] = checkOutDate
             return room['roomNumber']
@@ -51,6 +52,7 @@ def assignRoom(roomType, rooms):
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
+            room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now()
             room['checkOutDate'] = checkOutDate
             return room['roomNumber']
@@ -63,6 +65,7 @@ def assignRoom(roomType, rooms):
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
+            room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now()
             room['checkOutDate'] = checkOutDate
             return room['roomNumber']
@@ -75,6 +78,7 @@ def assignRoom(roomType, rooms):
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
+            room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now()
             room['checkOutDate'] = checkOutDate
             return room['roomNumber']
@@ -89,6 +93,7 @@ def assignRoom(roomType, rooms):
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
+            room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now()
             room['checkOutDate'] = checkOutDate
             return room['roomNumber']

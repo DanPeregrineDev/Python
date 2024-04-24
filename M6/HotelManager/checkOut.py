@@ -1,6 +1,5 @@
 import utils
-import app
-import datetime
+import config
 
 def checkOutMenu(rooms):
     print("=" * 60)
@@ -9,8 +8,13 @@ def checkOutMenu(rooms):
 
     for room in rooms:
         if room['roomNumber'] == roomNumber:
+            roomType = room['roomType']
+            print(f"Valor a pagar: {config.hotelPrices[f'{roomType}'] * room['nights']}€")
+            
             room['status'] = 'disponível'
             room['cleaned'] = 'Não'
             room['ocupants'] = None
+            room['nights'] = None
             room['checkInDate'] = None
             room['checkOutDate'] = None
+

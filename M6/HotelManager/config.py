@@ -21,8 +21,6 @@ def configMenu():
         if option == 3:
             changeDiscout()
         if option == 4:
-            changeCurrency()
-        if option == 5:
             app.mainMenu()
 
 
@@ -75,25 +73,6 @@ def changeDiscout():
     configMenu()
 
 
-def changeCurrency():
-    global currency
-
-    utils.showMenu("Mudar Moeda", ["$", "€", "£", "¥"])
-
-    print(f"Moeda atual: {currency}")
-
-    option = utils.askOption(4)
-
-    if option == 1:
-        currency = "$"
-    if option == 2:
-        currency = "€"
-    if option == 3:
-        currency = "£"
-    if option == 4:
-        currency = "¥"
-
-
 def listPrices():
     for room, price in hotelPrices.items():
-        print(f"{room} - {price}{currency}")
+        print(f"{room} - {price}€")
