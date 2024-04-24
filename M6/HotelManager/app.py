@@ -3,12 +3,15 @@ import config
 import checkIn
 import checkOut
 
+# installed package required
+import termcolor
+
 rooms = []
 
 def mainMenu():
 
     while True:
-        utils.showMenu("Menu", ["Check-in", "Check-out", "Listar Quartos", "Limpezas", "Configure", "Exit"])
+        utils.showMenu("Menu", ["Check-in", "Check-out", "Listar Quartos", "Limpezas", "Configurar", "Exit"])
 
         option = utils.askOption(6)
 

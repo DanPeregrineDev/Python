@@ -3,9 +3,12 @@
 import app
 import utils
 
+# installed package required
+import termcolor
+
 availableRooms = {'singleRoom': 20, 'doubleRoom': 40, 'tripleRoom': 20, 'quadripleRoom': 15, 'suite': 5}
 hotelPrices = {'singleRoom': 100, 'doubleRoom': 150, 'tripleRoom': 200, 'quadripleRoom': 250, 'suite': 400} # Per night
-maxNights = 15
+maxNights = 15 # 15 default
 discount = 0 # 0%
 currency = "€"
 
@@ -71,7 +74,7 @@ def changeDiscout():
 
     discount = newDiscount
 
-    print("Desconto alterado com sucesso")
+    termcolor.cprint("Desconto alterado com sucesso", "green")
 
     configMenu()
 
@@ -88,7 +91,7 @@ def changeMaxNights():
 
     maxNights = newMaxNights
 
-    print("Máximo de noites alterado com sucesso")
+    termcolor.cprint("Máximo de noites alterado com sucesso", "green")
 
     configMenu()
 

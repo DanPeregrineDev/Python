@@ -2,6 +2,9 @@ import utils
 import app
 import config
 
+# installed package required
+import termcolor
+
 def checkOutMenu(rooms):
     print("=" * 60)
     
@@ -22,3 +25,4 @@ def checkOutMenu(rooms):
             room['checkInDate'] = None
             room['checkOutDate'] = None
 
+            termcolor.cprint("CheckOut sucedido", "green")

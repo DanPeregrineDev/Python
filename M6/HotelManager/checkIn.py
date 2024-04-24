@@ -3,6 +3,9 @@ import app
 import datetime
 import config
 
+# installed package required
+import termcolor
+
 def checkInMenu(rooms):
     utils.showMenu("Check-In", ["1 Pessoa", "2 Pessoas", "3 Pessoas", "4 Pessoas", "Suite", "Voltar"])
 
@@ -50,6 +53,9 @@ def assignRoom(roomType, rooms):
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
+
+            termcolor.cprint("CheckIn sucedido", 'green')
+            
             return room['roomNumber']
         if room['roomType'] == 'doubleRoom' and room['status'] == 'disponível' and roomType == 2:
             for i in range(2):
@@ -63,6 +69,9 @@ def assignRoom(roomType, rooms):
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
+
+            termcolor.cprint("CheckIn sucedido", 'green')
+
             return room['roomNumber']
         if room['roomType'] == 'tripleRoom' and room['status'] == 'disponível' and roomType == 3:
             for i in range(3):
@@ -76,6 +85,9 @@ def assignRoom(roomType, rooms):
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
+
+            termcolor.cprint("CheckIn sucedido", 'green')
+
             return room['roomNumber']
         if room['roomType'] == 'quadripleRoom' and room['status'] == 'disponível' and roomType == 4:
             for i in range(4):
@@ -89,6 +101,9 @@ def assignRoom(roomType, rooms):
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
+
+            termcolor.cprint("CheckIn sucedido", 'green')
+
             return room['roomNumber']
         if room['roomType'] == 'suite' and room['status'] == 'disponível' and roomType == 5:
             nOcupants = utils.askNumber("Quantos ocupantes?: ")
@@ -104,7 +119,10 @@ def assignRoom(roomType, rooms):
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
+
+            termcolor.cprint("CheckIn sucedido", 'green')
+
             return room['roomNumber']
         
-    print("Nenhum quarto disponível")
+    termcolor.cprint("Nenhum quarto disponível", 'red')
     app.mainMenu()
