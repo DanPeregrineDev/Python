@@ -1,23 +1,25 @@
 import utils
 import config
+import checkIn
 
 rooms = []
 
 def mainMenu():
-    populateRooms()
 
     while True:
-        utils.showMenu("Menu", ["Check-in", "Check-out", "Configure", "Exit"])
+        utils.showMenu("Menu", ["Check-in", "Check-out", "Listar Quartos", "Configure", "Exit"])
 
-        option = utils.askOption(4)
+        option = utils.askOption(5)
 
         if option == 1:
-            pass
+            checkIn.checkInMenu(rooms)
         if option == 2:
             pass
         if option == 3:
-            config.configMenu()
+            listMenu()
         if option == 4:
+            config.configMenu()
+        if option == 5:
             break
 
 
@@ -59,15 +61,70 @@ def populateRooms():
             
             room = {
                 'roomNumber': int(f"{floor}{roomNumber}"),
+                'floor': floor,
                 'roomType': roomType,
-                'status': 'available',
-                'cleaned': True,
-                'tenant': None,
+                'status': 'disponível',
+                'cleaned': 'Sim',
+                'ocupants': None,
                 'checkInDate': None,
                 'checkOutDate': None
             }
 
             rooms.append(room)
 
+
+def listMenu():
+    while True:
+        utils.showMenu("Listar", ["Listar todos os quartos", "Listar quartos disponíveis", "Listar quartos ocupados", "Listar quartos por limpar", "Voltar"])
+
+        option = utils.askOption(5)
+
+        if option == 1:
+            listAllRooms()
+        if option == 2:
+            listEmptyRooms()
+        if option == 3:
+            listOcupiedRooms()
+        if option == 4:
+            listToCleanRooms()
+        if option == 5:
+            mainMenu()
+
+
+def listAllRooms():
+    print("=" * 60)
+
+    for room in rooms:
+        print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} | Data de entrada: {room['checkInDate']} | Data de Saída {room['checkOutDate']}")
+        print("-" * 60)
+
+
+def listEmptyRooms():
+    print("=" * 60)
+
+    for room in rooms:
+        if room['status'] == 'disponível':
+            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} | Data de entrada: {room['checkInDate']} | Data de Saída {room['checkOutDate']}")
+            print("-" * 60)
+
+
+def listOcupiedRooms():
+    print("=" * 60)
+
+    for room in rooms:
+        if room['status'] == 'ocupado':
+            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} | Data de entrada: {room['checkInDate']} | Data de Saída {room['checkOutDate']}")
+            print("-" * 60)
+
+
+def listToCleanRooms():
+    print("=" * 60)
+
+    for room in rooms:
+        if room['cleaned'] == 'Não':
+            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} | Data de entrada: {room['checkInDate']} | Data de Saída {room['checkOutDate']}")
+            print("-" * 60)
+
 if __name__ == "__main__":
+    populateRooms()
     mainMenu()

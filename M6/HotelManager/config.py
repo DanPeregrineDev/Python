@@ -15,7 +15,7 @@ def configMenu():
         option = utils.askOption(5)
 
         if option == 1:
-            pass
+            changeRoomQuantity()
         if option == 2:
             changePrices()
         if option == 3:
@@ -39,6 +39,8 @@ def changeRoomQuantity():
 
     print("Valores autalizados: ")
     print(availableRooms)
+
+    app.populateRooms()
 
 
 def changePrices():
