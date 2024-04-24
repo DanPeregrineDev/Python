@@ -20,13 +20,20 @@ def showMenu(title, options):
 
 def askOption(nOptions = 1000):
     """nOptions - Number of options"""
+    while True:
 
-    userInput = int(input(""))
+        userInput = input("")
 
-    while userInput < 0 or userInput > nOptions:
-        userInput = int(input(f"Opção inválida. Deve ser entre 0 e {nOptions}: "))
+        if not userInput.isdigit():
+            print("Opção inválida")
+            continue
 
-    return userInput
+        userInput = int(userInput)
+
+        while userInput < 0 or userInput > nOptions:
+            userInput = int(input(f"Opção inválida. Deve ser entre 0 e {nOptions}: "))
+
+        return userInput
 
 
 def askNumber(text = "", negative = False, maxNumber = None):

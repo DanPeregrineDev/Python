@@ -1,10 +1,14 @@
 import utils
+import app
 import config
 
 def checkOutMenu(rooms):
     print("=" * 60)
     
-    roomNumber = utils.askNumber("Número do quarto: ")
+    roomNumber = utils.askNumber("Número do quarto (deixe vazio para cancelar): ")
+
+    if roomNumber == None:
+        app.mainMenu()
 
     for room in rooms:
         if room['roomNumber'] == roomNumber:

@@ -33,17 +33,17 @@ def assignRoom(roomType, rooms):
     checkOutDate = datetime.datetime.now() + datetime.timedelta(days=nights)
 
     for room in rooms:
-        if room['roomType'] == 'singleRoom' and roomType == 1:
+        if room['roomType'] == 'singleRoom' and room['status'] == 'disponível' and roomType == 1:
             ocupante = input("Nome do ocupante: ")
 
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupante
             room['nights'] = nights
-            room['checkInDate'] = datetime.datetime.now()
-            room['checkOutDate'] = checkOutDate
+            room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
+            room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
             return room['roomNumber']
-        if room['roomType'] == 'doubleRoom' and roomType == 2:
+        if room['roomType'] == 'doubleRoom' and room['status'] == 'disponível' and roomType == 2:
             for i in range(2):
                 t = input(f"Nome do {i + 1}º ocupante: ")
                 
@@ -53,10 +53,10 @@ def assignRoom(roomType, rooms):
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
             room['nights'] = nights
-            room['checkInDate'] = datetime.datetime.now()
-            room['checkOutDate'] = checkOutDate
+            room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
+            room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
             return room['roomNumber']
-        if room['roomType'] == 'tripleRoom' and roomType == 3:
+        if room['roomType'] == 'tripleRoom' and room['status'] == 'disponível' and roomType == 3:
             for i in range(3):
                 t = input(f"Nome do {i + 1}º ocupante: ")
                 
@@ -66,10 +66,10 @@ def assignRoom(roomType, rooms):
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
             room['nights'] = nights
-            room['checkInDate'] = datetime.datetime.now()
-            room['checkOutDate'] = checkOutDate
+            room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
+            room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
             return room['roomNumber']
-        if room['roomType'] == 'quadripleRoom' and roomType == 4:
+        if room['roomType'] == 'quadripleRoom' and room['status'] == 'disponível' and roomType == 4:
             for i in range(4):
                 t = input(f"Nome do {i + 1}º ocupante: ")
                 
@@ -79,10 +79,10 @@ def assignRoom(roomType, rooms):
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
             room['nights'] = nights
-            room['checkInDate'] = datetime.datetime.now()
-            room['checkOutDate'] = checkOutDate
+            room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
+            room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
             return room['roomNumber']
-        if room['roomType'] == 'suite' and roomType == 5:
+        if room['roomType'] == 'suite' and room['status'] == 'disponível' and roomType == 5:
             nOcupants = utils.askNumber("Quantos ocupantes?: ")
 
             for i in range(nOcupants):
@@ -94,6 +94,9 @@ def assignRoom(roomType, rooms):
             room['cleaned'] = 'ocupado'
             room['ocupants'] = ocupantes
             room['nights'] = nights
-            room['checkInDate'] = datetime.datetime.now()
-            room['checkOutDate'] = checkOutDate
+            room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
+            room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
             return room['roomNumber']
+        
+    print("Nenhum quarto disponível")
+    app.mainMenu()
