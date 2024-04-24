@@ -5,12 +5,13 @@ import utils
 
 availableRooms = {'singleRoom': 20, 'doubleRoom': 40, 'tripleRoom': 20, 'quadripleRoom': 15, 'suite': 5}
 hotelPrices = {'singleRoom': 100, 'doubleRoom': 150, 'tripleRoom': 200, 'quadripleRoom': 250, 'suite': 400} # Per night
+maxNights = 15
 discount = 0 # 0%
 currency = "€"
 
 def configMenu():
     while True:
-        utils.showMenu("Configuration Menu", ["Alterar quantidade de quartos", "Mudar Preços", "Alterar valor do desconto", "Mudar moeda", "Voltar"])
+        utils.showMenu("Configuration Menu", ["Alterar quantidade de quartos", "Mudar Preços", "Alterar valor do desconto", "Mudar máximo de noites", "Voltar"])
 
         option = utils.askOption(5)
 
@@ -21,6 +22,8 @@ def configMenu():
         if option == 3:
             changeDiscout()
         if option == 4:
+            changeMaxNights()
+        if option == 5:
             app.mainMenu()
 
 
@@ -71,6 +74,15 @@ def changeDiscout():
     print("Desconto alterado com sucesso")
 
     configMenu()
+
+
+def changeMaxNights():
+    t = utils.askNumber(f"Novo máximo de noites | Atual: {maxNights} (deixe vazio para voltar): ")
+
+    if t == None:
+        configMenu()
+
+    t = maxNights
 
 
 def listPrices():

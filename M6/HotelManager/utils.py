@@ -42,21 +42,26 @@ def askNumber(text = "", negative = False, maxNumber = None):
         negative - if the number can be negative |
         maxNumber - max number value
     """
+    while True:
 
-    userInput = input(text)
+        userInput = input(text)
 
-    if userInput == "":
-        return None
+        if userInput == "":
+            return None
     
-    userInput = int(userInput)
-
-    while userInput < 0 and negative is False:
-        print("Não pode ser menor que 0")
-        userInput = int(input(text))
+        if not userInput.isdigit():
+            print("Opção inválida")
+            continue
     
-    while maxNumber != None and userInput > maxNumber:
-        print(f"Não pode ser maior que {maxNumber}")
-        userInput = int(input(text))
+        userInput = int(userInput)
+
+        while userInput < 0 and negative is False:
+            print("Não pode ser menor que 0")
+            userInput = int(input(text))
+    
+        while maxNumber != None and userInput > maxNumber:
+            print(f"Não pode ser maior que {maxNumber}")
+            userInput = int(input(text))
 
 
-    return userInput
+        return userInput

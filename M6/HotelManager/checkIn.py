@@ -1,6 +1,7 @@
 import utils
 import app
 import datetime
+import config
 
 def checkInMenu(rooms):
     utils.showMenu("Check-In", ["1 Pessoa", "2 Pessoas", "3 Pessoas", "4 Pessoas", "Suite", "Voltar"])
@@ -28,7 +29,14 @@ def assignRoom(roomType, rooms):
     """
     ocupantes = []
 
-    nights = utils.askNumber("Quantas noites?: ")
+    nights = utils.askNumber("Quantas noites? (deixe vazio para sair): ")
+
+    if nights == None:
+        app.mainMenu()
+
+    while nights > config.maxNights:
+        print("Numero máximo de noites exedido!")
+        nights = utils.askNumber("Quantas noites? (deixe vazio para sair): ")
 
     checkOutDate = datetime.datetime.now() + datetime.timedelta(days=nights)
 
