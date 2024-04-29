@@ -1,7 +1,6 @@
 import utils
 import app
 import datetime
-import config
 
 # installed package required
 import termcolor
@@ -37,7 +36,7 @@ def assignRoom(roomType, rooms):
     if nights == None:
         app.mainMenu()
 
-    while nights > config.maxNights:
+    while nights > app.maxNights:
         print("Numero máximo de noites exedido!")
         nights = utils.askNumber("Quantas noites? (deixe vazio para sair): ")
 
