@@ -31,7 +31,7 @@ def checkOutMenu(rooms, discount):
             print(f"Valor a pagar: {app.hotelPrices[roomType] * room['nights'] - (discount / 100) * app.hotelPrices[roomType] * room['nights']}€")
 
             if discount > 0 and extraDate == 0:
-                termcolor.cprint(f"Com desconto de {discount}%", 'blue')
+                termcolor.cprint(f"Desconto de {discount}% aplicado", 'blue')
             
             room['status'] = 'disponível'
             room['cleaned'] = 'Não'

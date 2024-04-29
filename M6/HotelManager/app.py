@@ -222,13 +222,13 @@ def changeDiscout():
     newDiscount = utils.askNumber()
 
     if newDiscount == None:
-        mainMenu()
+        return
 
     discount = newDiscount
 
     termcolor.cprint("Desconto alterado com sucesso", "green")
 
-    mainMenu()
+    return
 
 def changeMaxNights():
     global maxNights
@@ -238,18 +238,13 @@ def changeMaxNights():
     newMaxNights = utils.askNumber()
 
     if newMaxNights is None:
-        mainMenu()
+        return
 
     maxNights = newMaxNights
 
     termcolor.cprint("Máximo de noites alterado com sucesso", "green")
 
-    mainMenu()
-
-
-def listPrices():
-    for room, price in hotelPrices.items():
-        print(f"{room} - {price}€")
+    return
 
 
 if __name__ == "__main__":
