@@ -11,7 +11,7 @@ def checkOutMenu(rooms, discount):
     roomNumber = utils.askNumber("Número do quarto (deixe vazio para cancelar): ")
 
     if roomNumber is None:
-        app.mainMenu()
+        return
 
     extraDate = 0
 

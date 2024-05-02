@@ -20,7 +20,7 @@ def mainMenu():
         option = utils.askOption(6)
 
         if option == 1:
-            checkIn.checkInMenu(rooms)
+            checkIn.checkInMenu(rooms, maxNights)
         if option == 2:
             listOcupiedRooms()
             checkOut.checkOutMenu(rooms, discount)
@@ -31,7 +31,7 @@ def mainMenu():
         if option == 5:
             configMenu()
         if option == 6:
-            break
+            return
 
 
 def populateRooms():

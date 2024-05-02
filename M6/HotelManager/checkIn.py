@@ -5,26 +5,26 @@ import datetime
 # installed package required
 import termcolor
 
-def checkInMenu(rooms):
+def checkInMenu(rooms, maxNights):
     utils.showMenu("Check-In", ["1 Pessoa", "2 Pessoas", "3 Pessoas", "4 Pessoas", "Suite", "Voltar"])
 
     option = utils.askOption(6)
 
     if option == 1:
-        assignRoom(1, rooms)
+        assignRoom(1, rooms, maxNights)
     if option == 2:
-        assignRoom(2, rooms)
+        assignRoom(2, rooms, maxNights)
     if option == 3:
-        assignRoom(3, rooms)
+        assignRoom(3, rooms, maxNights)
     if option == 4:
-        assignRoom(4, rooms)
+        assignRoom(4, rooms, maxNights)
     if option == 5:
-        assignRoom(5, rooms)
+        assignRoom(5, rooms, maxNights)
     if option == 6:
         app.mainMenu()
 
 
-def assignRoom(roomType, rooms):
+def assignRoom(roomType, rooms, maxNights):
     """
         roomType - 1 = singleRoom | 2 = doubleRoom...etc | for suites use 5
         function will return room number
@@ -36,7 +36,7 @@ def assignRoom(roomType, rooms):
     if nights == None:
         app.mainMenu()
 
-    while nights > app.maxNights:
+    while nights > maxNights:
         print("Numero máximo de noites exedido!")
         nights = utils.askNumber("Quantas noites? (deixe vazio para sair): ")
 
