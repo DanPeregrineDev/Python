@@ -1,4 +1,4 @@
-userInput = input("Escreva uma fraze: ")
+userInput = input("Escreva uma frase: ")
 userInput += " "
 
 palavras = {}
