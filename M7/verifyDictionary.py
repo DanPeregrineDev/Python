@@ -12,7 +12,7 @@ phraseWords = phrase.split()
 
 
 
-if os.path.exists('dwords.txt') == False:
+if os.path.exists('words.txt') == False:
     print("File not found")
 else:
     with open('words.txt', 'r') as file:
