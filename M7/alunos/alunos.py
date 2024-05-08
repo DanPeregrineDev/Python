@@ -41,6 +41,13 @@ def adicionar():
 
     print(f"Aluno inserido com sucesso! Tem {len(alunos)} alunos")
 
+def pesquisar():
+    pesquisa = input("Nome do aluno: ")
+
+    for aluno in alunos:
+        if pesquisa in aluno:
+            print(aluno)
+
 def apagar():
     """Função para apagar um aluno da lista"""
     
@@ -104,14 +111,16 @@ def main():
     ler()
 
     while True:
-        op=utils.menu("Ficheiros Texto",["Adicionar","Listar","Apagar","Terminar"])
+        op=utils.menu("Ficheiros Texto",["Adicionar","Listar","Pesquisar","Apagar","Terminar"])
         if op==1:
             adicionar()
         if op==2:
             listar()
         if op==3:
-            apagar()
+            pesquisar()
         if op==4:
+            apagar()
+        if op==5:
             break
     
     guardar()
