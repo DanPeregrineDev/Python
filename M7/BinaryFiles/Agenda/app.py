@@ -100,12 +100,43 @@ def list():
         return
 
 
+def edit():
+    position = int(input("Contact number: "))
+    position = (position - 1) * 177
+
+    with open('data.dat', 'rb+') as file:
+        file.seek(position)
+        data = file.read(177)
+
+        if not data:
+            print("Not found")
+            return
+        
+        name, age, email, phone = struct.unpack("100si64s9s", data)
+        
+        name = name.decode('UTF-8').rstrip('\x00')
+        email = email.decode('UTF-8').rstrip('\x00')
+        phone = phone.decode('UTF-8').rstrip('\x00')
+
+        print(f"{name}\t{age}\t{email}\t{phone}")
+
+        name = input("Name: ")
+        
+
+
+def remove():
+    pass
+
 def main():
     while True:
         option = utils.showmenu("Main menu", ["Add contact", "Edit Contact", "Remove Contact", "List Contacts", "Exit"])
 
         if option == 1:
             add()
+        if option == 2:
+            edit()
+        if option == 3:
+            remove()
         if option == 4:
             list()
         if option == 5:
