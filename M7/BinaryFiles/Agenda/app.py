@@ -16,6 +16,8 @@ import struct, os
 import utils
 
 def add():
+
+
     name = input("Nome do contacto: ")
     age = int(input("Idade do contacto: "))
     email = input("Email do contacto: ")
@@ -101,6 +103,10 @@ def list():
 
 
 def edit():
+    if os.path.exists('data.dat') == False:
+        print("Sem contactos")
+        return
+    
     position = int(input("Contact number: "))
     position = (position - 1) * 177
 
@@ -121,11 +127,53 @@ def edit():
         print(f"{name}\t{age}\t{email}\t{phone}")
 
         name = input("Name: ")
-        
+        age = int(input("Idade: "))
+        email = input("Email: ")
+        phone = input("Telefone: ")
+
+        file.seek(position)
+
+        name = struct.pack("100s", name.encode('UTF-8'))
+        file.write(name)
+
+        age = struct.pack("i", age)
+        file.write(age)
+
+        email = struct.pack("64s", email.encode("UTF-8"))
+        file.write(email)
+
+        phone = struct.pack("9s", phone.encode('UTF-8'))
+        file.write(phone)
 
 
 def remove():
-    pass
+    if os.path.exists('data.dat') == False:
+        print("Sem contactos")
+        return
+    
+    position = int(input("Posição do contacto a remover: "))
+    position = (position - 1) * 177
+
+    t = 0
+
+    with open('data.dat', 'rb') as fileR:
+        with open('temp.dat', 'wb') as fileW:
+            while True:
+                data = fileR.read(177)
+
+                if not data:
+                    break
+            
+                if position != t:
+                    fileW.write(data)
+
+                t = t + 177
+
+    os.remove('data.dat')
+    os.rename('temp.dat', 'data.dat')
+
+    print("Contacto removido com sucesso")
+
 
 def main():
     while True:
