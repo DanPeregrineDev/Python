@@ -204,9 +204,41 @@ def remove():
         print(f"Foram removidos {removed} veículos")
 
 
+def removeRepairs():
+    if os.path.exists(REPAIRS_FILE) == False:
+        print("Sem avarias")
+        return
+    
+    toRemove = input("Matricula: ").upper()
+    
+    with open(REPAIRS_FILE, 'rb') as rFile:
+        removed = 0
+
+        with open('temp.dat', 'wb') as wFile:
+            while True:
+                try:
+                    veiculo = pickle.load(rFile)
+
+                    if veiculo['matricula'] != toRemove:
+                        pickle.dump(veiculo, wFile)
+                    else:
+                        removed = removed + 1
+                
+                except EOFError:
+                    break
+
+    os.remove(REPAIRS_FILE)
+    os.rename('temp.dat', REPAIRS_FILE)
+
+    if removed == 0:
+        print(f"Nenhum carro com a matrícula {toRemove} encontrado")
+    else:
+        print(f"Foram removidos {removed} avarias")
+
+
 def main():
     while True:
-        option = utils.showmenu("Main menu", ["Adicionar", "Adicionar avaria", "Listar", "Listar avarias", "Listar com mais de 10 anos", "Mostrar marca com mais veiculos", "Pesquisar", "Remover", "Sair"])
+        option = utils.showmenu("Main menu", ["Adicionar", "Adicionar avaria", "Listar", "Listar avarias", "Listar com mais de 10 anos", "Mostrar marca com mais veiculos", "Pesquisar", "Remover", "Remover avarias", "Sair"])
 
         if option == 1:
             add()
@@ -225,6 +257,8 @@ def main():
         if option == 8:
             remove()
         if option == 9:
+            removeRepairs()
+        if option == 10:
             break
 
 if __name__ == "__main__":
