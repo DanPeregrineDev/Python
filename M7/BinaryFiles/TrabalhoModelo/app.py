@@ -206,7 +206,7 @@ def remove():
 
 def main():
     while True:
-        option = utils.showmenu("Main menu", ["Adicionar", "Listar", "Listar com mais de 10 anos", "Mostrar marca com mais veiculos", "Pesquisar", "Remover", "Sair"])
+        option = utils.showmenu("Main menu", ["Adicionar", "Adicionar avaria", "Listar", "Listar avarias", "Listar com mais de 10 anos", "Mostrar marca com mais veiculos", "Pesquisar", "Remover", "Sair"])
 
         if option == 1:
             add()
