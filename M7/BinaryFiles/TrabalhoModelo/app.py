@@ -4,6 +4,34 @@ import os, pickle
 import utils
 
 FILE_NAME = 'data.pkl'
+REPAIRS_FILE = 'repairs.pkl'
+
+def addRepair():
+    if os.path.exists(FILE_NAME) == False:
+        print("Sem veiculos")
+        return
+
+    plate = input("Matricula: ").upper()
+
+    with open(FILE_NAME, 'rb') as rFile:
+        while True:
+            try:
+                vehicles = pickle.load(rFile)
+
+                if vehicles['matricula'] == plate:
+                    with open(REPAIRS_FILE, 'ab') as wFile:
+                        vehicle = {
+                            'matricula': plate,
+                            'avarias': input("Avaria: "),
+                            'data': input("Data da avaria: "),
+                            'custo': utils.intInput("Custo da avaria: ")
+                        }
+
+                        pickle.dump(vehicle, wFile)
+
+            except EOFError:
+                break
+
 
 def add():
     with open(FILE_NAME, 'ab') as file:
@@ -33,6 +61,26 @@ def list():
 
                 print(f"{t} - {veiculos['matricula']} | {veiculos['modelo']} | {veiculos['marca']} | {veiculos['anoFabrico']}")
                 
+                t = t + 1
+
+            except EOFError:
+                break
+
+
+def listRepairs():
+    if os.path.exists(REPAIRS_FILE) == False:
+        print("Sem avarias")
+        return
+    
+    with open(REPAIRS_FILE, 'rb') as file:
+        t = 1
+
+        while True:
+            try:
+                repairs = pickle.load(file)
+
+                print(f"{t} - {repairs['matricula']} | Avaria: {repairs['avarias']} | Data: {repairs['data']} | Custo: {repairs['custo']}")
+
                 t = t + 1
 
             except EOFError:
@@ -162,17 +210,21 @@ def main():
 
         if option == 1:
             add()
-        if option == 2:
-            list()
+        if option ==2:
+            addRepair()
         if option == 3:
-            listMoreThan10YearsOld() # Bonus
+            list()
         if option == 4:
-            showBrandWithMoreVehicles() # Bonus
+            listRepairs()
         if option == 5:
-            search()
+            listMoreThan10YearsOld() # Bonus
         if option == 6:
-            remove()
+            showBrandWithMoreVehicles() # Bonus
         if option == 7:
+            search()
+        if option == 8:
+            remove()
+        if option == 9:
             break
 
 if __name__ == "__main__":
