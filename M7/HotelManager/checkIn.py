@@ -1,9 +1,3 @@
-"""
-    PROBLEMAS:
-
-    QUANDO QUARTO FOR MAIS QUE UMA PESSOA NAO ATRIBUI OS OCUPANTES
-"""
-
 import datetime, termcolor, pickle
 import utils
 

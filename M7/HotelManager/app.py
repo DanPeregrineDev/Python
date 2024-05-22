@@ -1,5 +1,5 @@
 import os, pickle, termcolor
-import utils, checkIn, checkOut, list
+import utils, checkIn, checkOut, list, cleaning
 
 ROOMS_FILE = './data/rooms.dat'
 CONFIG_FILE = './data/config.dat'
@@ -17,7 +17,7 @@ def main():
         elif option == 3:
             list.main()
         elif option == 4:
-            pass
+            cleaning.main()
         elif option == 5:
             pass
         elif option == 6:
