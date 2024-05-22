@@ -48,7 +48,7 @@ def assignRoom(roomType, rooms, maxNights):
 
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
-            room['ocupants'] = ocupante
+            room['occupants'] = ocupante
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
@@ -64,7 +64,7 @@ def assignRoom(roomType, rooms, maxNights):
 
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
-            room['ocupants'] = ocupantes
+            room['occupants'] = ocupantes
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
@@ -80,7 +80,7 @@ def assignRoom(roomType, rooms, maxNights):
 
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
-            room['ocupants'] = ocupantes
+            room['occupants'] = ocupantes
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
@@ -96,7 +96,7 @@ def assignRoom(roomType, rooms, maxNights):
 
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
-            room['ocupants'] = ocupantes
+            room['occupants'] = ocupantes
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
@@ -105,16 +105,16 @@ def assignRoom(roomType, rooms, maxNights):
 
             return room['roomNumber']
         if room['roomType'] == 'suite' and room['status'] == 'disponível' and roomType == 5:
-            nOcupants = utils.askNumber("Quantos ocupantes?: ")
+            noccupants = utils.askNumber("Quantos ocupantes?: ")
 
-            for i in range(nOcupants):
+            for i in range(noccupants):
                 t = input(f"Nome do {i + 1}º ocupante: ")
                 
                 ocupantes.append(t)
 
             room['status'] = 'ocupado'
             room['cleaned'] = 'ocupado'
-            room['ocupants'] = ocupantes
+            room['occupants'] = ocupantes
             room['nights'] = nights
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")

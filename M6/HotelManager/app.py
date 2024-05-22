@@ -76,7 +76,7 @@ def populateRooms():
                 'roomType': roomType,
                 'status': 'disponível',
                 'cleaned': 'Sim',
-                'ocupants': None,
+                'occupants': None,
                 'nights': None,
                 'checkInDate': None,
                 'checkOutDate': None
@@ -110,7 +110,7 @@ def listAllRooms():
     print("=" * 60)
 
     for room in rooms:
-        print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} \nNoites: {room['nights']} | Data de entrada: {room['checkInDate']} | Data de Saída: {room['checkOutDate']}")
+        print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['occupants']} \nNoites: {room['nights']} | Data de entrada: {room['checkInDate']} | Data de Saída: {room['checkOutDate']}")
         print("-" * 60)
 
 
@@ -119,7 +119,7 @@ def listEmptyRooms():
 
     for room in rooms:
         if room['status'] == 'disponível':
-            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} \nNoites: {room['nights']} | Data de entrada: {room['checkInDate']} | Data de Saída: {room['checkOutDate']}")
+            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['occupants']} \nNoites: {room['nights']} | Data de entrada: {room['checkInDate']} | Data de Saída: {room['checkOutDate']}")
             print("-" * 60)
 
 
@@ -128,7 +128,7 @@ def listOcupiedRooms():
 
     for room in rooms:
         if room['status'] == 'ocupado':
-            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['ocupants']} \nNoites: {room['nights']} | Data de entrada: {room['checkInDate']} | Data de Saída: {room['checkOutDate']}")
+            print(f"Numero: {room['roomNumber']} | Andar: {room['floor']} | Tipo: {room['roomType']} | Estado: {room['status']} | Limpo?: {room['cleaned']} | Ocupante(s): {room['occupants']} \nNoites: {room['nights']} | Data de entrada: {room['checkInDate']} | Data de Saída: {room['checkOutDate']}")
             print("-" * 60)
 
 

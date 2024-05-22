@@ -26,11 +26,20 @@ def showMenu(title, options):
     return option
 
 
-def intInput(text):
+def intInput(text, min = 1):
     userInput = input(text)
 
     while userInput.isdigit() == False:
         print("Valor inválido")
         userInput = input(text)
+
+    userInput = int(userInput)
+
+    while userInput < min:
+        print("Valor inválido")
+        userInput = input(text)
+
+    if userInput == "":
+        return None
 
     return int(userInput)

@@ -1,5 +1,5 @@
 import os, pickle, termcolor
-import utils, checkIn
+import utils, checkIn, checkOut, list
 
 ROOMS_FILE = './data/rooms.dat'
 CONFIG_FILE = './data/config.dat'
@@ -8,17 +8,19 @@ def main():
     initialize()
 
     while True:
-        option = utils.showMenu("Main Menu", ["Check-In", "Check-Out", "Listar quartos", "Limpezas", "Configurar"])
+        option = utils.showMenu("Main Menu", ["Check-In", "Check-Out", "Listar quartos", "Limpezas", "Configurar", "Sair"])
 
         if option == 1:
             checkIn.main()
         elif option == 2:
-            pass
+            checkOut.main()
         elif option == 3:
-            pass
+            list.main()
         elif option == 4:
             pass
         elif option == 5:
+            pass
+        elif option == 6:
             print("A fechar...")
             break
 
@@ -126,7 +128,7 @@ def initialize():
                     'roomType': roomType,
                     'status': 'disponível',
                     'cleaned': 'Sim',
-                    'ocupants': None,
+                    'occupants': None,
                     'nights': None,
                     'checkInDate': None,
                     'checkOutDate': None
