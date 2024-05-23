@@ -26,10 +26,10 @@ def showMenu(title, options):
     return option
 
 
-def intInput(text, min = 1):
+def intInput(text, min = 1, allowEmpty = True):
     userInput = input(text)
 
-    if userInput == "":
+    if userInput == "" and allowEmpty == True:
         return None
     
     while userInput.isdigit() == False:

@@ -5,7 +5,7 @@ ROOMS_FILE = './data/rooms.dat'
 
 def main():
     print("=" * 60)
-    print("Quartos para limpar:")
+    print("Quartos por limpar:")
 
     list.listToCleanRooms()
 

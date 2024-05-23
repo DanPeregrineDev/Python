@@ -26,13 +26,7 @@ def assignRoom(roomType):
 
     with open(CONFIG_FILE, 'rb') as configFile:
         for i in range(3):
-            if i == 0:
-                availableRooms = pickle.load(configFile)
-            
-            elif i == 1:
-                roomPrices = pickle.load(configFile)
-            
-            elif i  == 2:
+            if i  == 2:
                 otherConfigurations = pickle.load(configFile)
 
     # Load rooms file

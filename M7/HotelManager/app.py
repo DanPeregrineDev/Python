@@ -36,27 +36,27 @@ def initialize():
         termcolor.cprint("A criar configuração...", "light_green")
 
         availableRooms = {
-            'singleRoom': utils.intInput("Numero de quartos para 1 pessoa: "),
-            'doubleRoom': utils.intInput("Numero de quartos para 2 pessoas: "),
-            'tripleRoom': utils.intInput("Numero de quartos para 3 pessoas: "),
-            'quadripleRoom': utils.intInput("Numero de quartos para 4 pessoas: "),
-            'suite': utils.intInput("Numero de suites (Será o mesmo numero de andares): ")
+            'singleRoom': utils.intInput("Numero de quartos para 1 pessoa: ", allowEmpty=False),
+            'doubleRoom': utils.intInput("Numero de quartos para 2 pessoas: ", allowEmpty=False),
+            'tripleRoom': utils.intInput("Numero de quartos para 3 pessoas: ", allowEmpty=False),
+            'quadripleRoom': utils.intInput("Numero de quartos para 4 pessoas: ", allowEmpty=False),
+            'suite': utils.intInput("Numero de suites (Será o mesmo numero de andares): ", allowEmpty=False)
         }
 
         print("")
 
         roomPrices = {
-            'singleRoom': utils.intInput("Preço do quarto para 1 pessoa: "),
-            'doubleRoom': utils.intInput("Preço do quarto para 2 pessoas: "),
-            'tripleRoom': utils.intInput("Preço do quarto para 3 pessoas: "),
-            'quadripleRoom': utils.intInput("Preço do quarto para 4 pessoas: "),
+            'singleRoom': utils.intInput("Preço do quarto para 1 pessoa: ", allowEmpty=False),
+            'doubleRoom': utils.intInput("Preço do quarto para 2 pessoas: ", allowEmpty=False),
+            'tripleRoom': utils.intInput("Preço do quarto para 3 pessoas: ", allowEmpty=False),
+            'quadripleRoom': utils.intInput("Preço do quarto para 4 pessoas: ", allowEmpty=False),
             'suite': utils.intInput("Preço de uma suite: ")
         }
 
         print("")
 
         otherConfigurations = {
-            'maxNights': utils.intInput("Numero máximo de noites: "),
+            'maxNights': utils.intInput("Numero máximo de noites: ", allowEmpty=False),
             'discount': 0
         }
 

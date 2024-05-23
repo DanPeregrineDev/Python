@@ -1,4 +1,4 @@
-import os, pickle, termcolor, datetime
+import pickle, termcolor, datetime
 import utils, list
 
 CONFIG_FILE = './data/config.dat'
@@ -15,9 +15,7 @@ def main():
     
     with open(CONFIG_FILE, 'rb') as configFile:
         for i in range(3):
-            if i == 0:
-                availableRooms = pickle.load(configFile)
-            elif i == 1:
+            if i == 1:
                 roomPrices = pickle.load(configFile)
             elif i == 2:
                 otherConfigurations = pickle.load(configFile)
