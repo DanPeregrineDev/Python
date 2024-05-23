@@ -1,5 +1,8 @@
+# Python
 import os, pickle, termcolor
-import utils, checkIn, checkOut, list, cleaning
+
+# Local
+import utils, checkIn, checkOut, list, cleaning, config
 
 ROOMS_FILE = './data/rooms.dat'
 CONFIG_FILE = './data/config.dat'
@@ -19,7 +22,7 @@ def main():
         elif option == 4:
             cleaning.main()
         elif option == 5:
-            pass
+            config.main()
         elif option == 6:
             print("A fechar...")
             break
@@ -141,8 +144,6 @@ def initialize():
         with open(ROOMS_FILE, 'wb') as file:
             try:
                 pickle.dump(rooms, file)
-                
-                termcolor.cprint("Criado ficheiro dos quartos com sucesso", "light_green")
             
             except:
                 termcolor.cprint("ERRO ao criar ficheiro dos quartos", "red")
