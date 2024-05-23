@@ -29,6 +29,9 @@ def showMenu(title, options):
 def intInput(text, min = 1):
     userInput = input(text)
 
+    if userInput == "":
+        return None
+    
     while userInput.isdigit() == False:
         print("Valor inválido")
         userInput = input(text)
@@ -39,7 +42,5 @@ def intInput(text, min = 1):
         print("Valor inválido")
         userInput = input(text)
 
-    if userInput == "":
-        return None
 
     return int(userInput)
