@@ -15,7 +15,11 @@ def main():
         return
     
     with open(ROOMS_FILE, 'rb') as file:
-        rooms = pickle.load(file)
+        try:
+            rooms = pickle.load(file)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
 
     for room in rooms:
         if room['roomNumber'] == markAsCleaned:
@@ -26,4 +30,8 @@ def main():
     # Save changes
 
     with open(ROOMS_FILE, 'wb') as file:
-        pickle.dump(rooms, file)
+        try:
+            pickle.dump(rooms, file)
+
+        except:
+            termcolor.cprint("ERRO ao guardar alterações", "red")

@@ -3,6 +3,7 @@ import utils, list
 
 CONFIG_FILE = './data/config.dat'
 ROOMS_FILE = './data/rooms.dat'
+STATS_FILE = './data/stats.dat'
 
 def main():
     print("Quartos ocupados:")
@@ -13,15 +14,34 @@ def main():
     if roomNumber == None:
         return
     
+    # Load config file
+    
     with open(CONFIG_FILE, 'rb') as configFile:
-        for i in range(3):
-            if i == 1:
-                roomPrices = pickle.load(configFile)
-            elif i == 2:
-                otherConfigurations = pickle.load(configFile)
+        try:
+            availableRooms = pickle.load(configFile)
+            roomPrices = pickle.load(configFile)
+            otherConfigurations = pickle.load(configFile)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro das configurações", "red")
+
+    # Load rooms file
     
     with open(ROOMS_FILE, 'rb') as roomsFile:
-        rooms = pickle.load(roomsFile)
+        try:
+            rooms = pickle.load(roomsFile)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
+
+    # Load stats file
+
+    with open(STATS_FILE, 'rb') as statsFile:
+        try:
+            stats = pickle.load(statsFile)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro das estatísticas", "red")
     
     extraDate = 0
 
@@ -41,8 +61,12 @@ def main():
 
             print(f"Valor a pagar: {roomPrices[roomType] * room['nights'] - (otherConfigurations['discount'] / 100) * roomPrices[roomType] * room['nights']}€")
 
+            stats['totalProfit'] += roomPrices[roomType] * room['nights'] - (otherConfigurations['discount'] / 100) * roomPrices[roomType] * room['nights']
+
             if otherConfigurations['discount'] > 0 and extraDate == 0:
                 termcolor.cprint(f"Desconto de {otherConfigurations['discount']}% aplicado", 'blue')
+            
+            stats['totalNumberOfCustomers'] -= len(room['occupants'])
             
             room['status'] = 'disponível'
             room['cleaned'] = 'Não'
@@ -53,7 +77,21 @@ def main():
 
             termcolor.cprint("CheckOut concluido", "green")
 
-    # Save changes
+    # Save changes to rooms file
 
     with open(ROOMS_FILE, 'wb') as file:
-        pickle.dump(rooms, file)
+        try:
+            pickle.dump(rooms, file)
+        
+        except:
+            termcolor.cprint("ERRO ao guardar alterações", "red")
+            return # so it doesn't break the stats
+
+    # Save changes to stats file
+
+    with open(STATS_FILE, 'wb') as file:
+        try:
+            pickle.dump(stats, file)
+        
+        except:
+            termcolor.cprint("ERRO ao guardar alterações", "red")

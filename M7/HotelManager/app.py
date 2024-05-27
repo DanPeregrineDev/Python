@@ -2,16 +2,17 @@
 import os, pickle, termcolor
 
 # Local
-import utils, checkIn, checkOut, list, cleaning, config
+import utils, checkIn, checkOut, list, cleaning, config, stats
 
-ROOMS_FILE = './data/rooms.dat'
 CONFIG_FILE = './data/config.dat'
+ROOMS_FILE = './data/rooms.dat'
+STATS_FILE = './data/stats.dat'
 
 def main():
     initialize()
 
     while True:
-        option = utils.showMenu("Main Menu", ["Check-In", "Check-Out", "Listar quartos", "Limpezas", "Configurar", "Sair"])
+        option = utils.showMenu("Main Menu", ["Check-In", "Check-Out", "Listar quartos", "Limpezas", "Mostras estatísticas", "Configurar", "Sair"])
 
         if option == 1:
             checkIn.main()
@@ -22,8 +23,10 @@ def main():
         elif option == 4:
             cleaning.main()
         elif option == 5:
-            config.main()
+            stats.main()
         elif option == 6:
+            config.main()
+        elif option == 7:
             print("A fechar...")
             break
 
@@ -59,6 +62,8 @@ def initialize():
             'maxNights': utils.intInput("Numero máximo de noites: ", allowEmpty=False),
             'discount': 0
         }
+
+        print("")
 
         with open(CONFIG_FILE, 'wb') as file:
             try:
@@ -144,9 +149,30 @@ def initialize():
         with open(ROOMS_FILE, 'wb') as file:
             try:
                 pickle.dump(rooms, file)
+
+                termcolor.cprint("Criado ficheiro dos quartos com sucesso", "light_green")
             
             except:
                 termcolor.cprint("ERRO ao criar ficheiro dos quartos", "red")
+
+    # STATS file
+
+    if os.path.exists(STATS_FILE) == False:
+        stats = {
+            'totalNumberOfRooms': nOfRooms,
+            'totalProfit': 0,
+            'occupancyRate': 0,
+            'mostPopularRoomType': None
+        }
+
+        with open(STATS_FILE, 'wb') as file:
+            try:
+                pickle.dump(stats, file)
+
+                termcolor.cprint("Criado ficheiro das estatísticas com sucesso", "light_green")
+
+            except:
+                termcolor.cprint("ERRO ao criar ficheiro das estatísticas", "red")
 
 if __name__ == "__main__":
     main()

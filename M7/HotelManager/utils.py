@@ -44,3 +44,16 @@ def intInput(text, min = 1, allowEmpty = True):
 
 
     return int(userInput)
+
+def YesOrNo():
+    userInput = input("").upper()
+
+    while userInput not in ["Y", "N", "YES", "NO", ""]:
+        print("Opção inválida")
+        userInput = input("").upper()
+
+    if userInput in ["N", "NO", ""]:
+        return False
+    
+    if userInput in ["Y", "YES"]:
+        return True

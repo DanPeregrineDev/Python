@@ -1,8 +1,9 @@
 import datetime, termcolor, pickle
 import utils
 
-ROOMS_FILE = './data/rooms.dat'
 CONFIG_FILE = './data/config.dat'
+ROOMS_FILE = './data/rooms.dat'
+STATS_FILE = './data/stats.dat'
 
 def main():
     option = utils.showMenu("Check-In", ["1 Pessoa", "2 Pessoas", "3 Pessoas", "4 Pessoas", "Suite", "Voltar"])
@@ -25,9 +26,13 @@ def assignRoom(roomType):
     # Load config file
 
     with open(CONFIG_FILE, 'rb') as configFile:
-        for i in range(3):
-            if i  == 2:
-                otherConfigurations = pickle.load(configFile)
+        try:
+            availableRooms = pickle.load(configFile)
+            roomPrices = pickle.load(configFile)
+            otherConfigurations = pickle.load(configFile)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro das configurações", "red")
 
     # Load rooms file
 
@@ -36,7 +41,7 @@ def assignRoom(roomType):
             rooms = pickle.load(roomsFile)
         
         except:
-            termcolor.cprint("ERRO ao ler ficheiro dos quartos", "red")
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
 
     occupants = []
 
@@ -61,7 +66,7 @@ def assignRoom(roomType):
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
 
-            termcolor.cprint(f"CheckIn sucedido no quarto {room['roomNumber']}", 'light_green')
+            termcolor.cprint(f"CheckIn concluído no quarto {room['roomNumber']}", 'light_green')
 
             found = True
 
@@ -81,7 +86,7 @@ def assignRoom(roomType):
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
 
-            termcolor.cprint(f"CheckIn sucedido no quarto {room['roomNumber']}", 'light_green')
+            termcolor.cprint(f"CheckIn concluído no quarto {room['roomNumber']}", 'light_green')
 
             found = True
 
@@ -100,7 +105,7 @@ def assignRoom(roomType):
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
 
-            termcolor.cprint(f"CheckIn sucedido no quarto {room['roomNumber']}", 'light_green')
+            termcolor.cprint(f"CheckIn concluído no quarto {room['roomNumber']}", 'light_green')
 
             found = True
 
@@ -119,14 +124,14 @@ def assignRoom(roomType):
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
 
-            termcolor.cprint(f"CheckIn sucedido no quarto {room['roomNumber']}", 'light_green')
+            termcolor.cprint(f"CheckIn concluído no quarto {room['roomNumber']}", 'light_green')
 
             found = True
 
             break
 
         elif room['roomType'] == 'suite' and room['status'] == 'disponível' and roomType == 5:
-            noccupants = utils.askNumber("Quantos ocupantes?: ")
+            noccupants = utils.intInput("Quantos ocupantes?: ")
 
             for i in range(noccupants):
                 t = input(f"Nome do {i + 1}º ocupante: ")
@@ -140,7 +145,7 @@ def assignRoom(roomType):
             room['checkInDate'] = datetime.datetime.now().strftime("%H:%M / %d/%m/%Y")
             room['checkOutDate'] = checkOutDate.strftime("%H:%M / %d/%m/%Y")
 
-            termcolor.cprint(f"CheckIn sucedido no quarto {room['roomNumber']}", 'light_green')
+            termcolor.cprint(f"CheckIn concluído no quarto {room['roomNumber']}", 'light_green')
 
             found = True
 
@@ -149,7 +154,11 @@ def assignRoom(roomType):
     if found == False:
         termcolor.cprint("Nenhum quarto disponível", 'red')
 
-    # Save changes
+    # Save changes to rooms file
 
     with open(ROOMS_FILE, 'wb') as file:
-        pickle.dump(rooms, file)
+        try:
+            pickle.dump(rooms, file)
+
+        except:
+            termcolor.cprint("ERRO ao guardar alterações", "red")

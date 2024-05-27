@@ -3,9 +3,10 @@ import utils, app
 
 CONFIG_FILE = './data/config.dat'
 ROOM_FILE = './data/rooms.dat'
+STATS_FILE = './data/stats.dat'
 
 def main():
-    option = utils.showMenu("Configurações", ["Alterar quantidade de quartos", "Mudar preço dos quartos", "Alterar valor do desconto", "Mudar máximo de noites", "Voltar"])
+    option = utils.showMenu("Configurações", ["Alterar quantidade de quartos", "Mudar preço dos quartos", "Alterar valor do desconto", "Mudar máximo de noites", "Apagar todos os dados", "Voltar"])
 
     if option == 1:
         changeRoomQuantity()
@@ -16,19 +17,20 @@ def main():
     elif option == 4:
         changeMaxNights()
     elif option == 5:
+        removeAllData()
+    elif option == 6:
         return
 
 
 def changeRoomQuantity():
     with open(CONFIG_FILE, 'rb') as file:
-        for i in range(3):
+        try:
+            availableRooms = pickle.load(file)
+            roomPrices = pickle.load(file)
+            otherConfigurations = pickle.load(file)
 
-            if i == 0:
-                availableRooms = pickle.load(file)
-            elif i == 1:
-                roomPrices = pickle.load(file)
-            elif i == 2:
-                otherConfigurations = pickle.load(file)
+        except:
+            termcolor.cprint("ERRO ao ler ficheiro das configurações", "red")
 
     termcolor.cprint(f"Ao alterar os valores ira apagar todos os ocupantes. (Deixe vazio para não alterar)", "light_yellow")
     
@@ -51,14 +53,14 @@ def changeRoomQuantity():
 
     if 'error' not in locals():
         with open(CONFIG_FILE, 'wb') as file:
-            for i in range(3):
-                
-                if i == 0:
-                    pickle.dump(availableRooms, file)
-                elif i == 1:
-                    pickle.dump(roomPrices, file)
-                elif i == 2:
-                    pickle.dump(otherConfigurations, file)
+            try:
+                pickle.dump(availableRooms, file)
+                pickle.dump(roomPrices, file)
+                pickle.dump(otherConfigurations, file)
+
+            except:
+                termcolor.cprint("ERRO ao guardar alterações", "red")
+                return
 
         termcolor.cprint("Quantidades atualizadas com sucesso", "light_green")
 
@@ -70,14 +72,13 @@ def changeRoomQuantity():
 
 def changeRoomPrices():
     with open(CONFIG_FILE, 'rb') as file:
-        for i in range(3):
-            
-            if i == 0:
-                availableRooms = pickle.load(file)
-            elif i == 1:
-                roomPrices = pickle.load(file)
-            elif i == 2:
-                otherConfigurations = pickle.load(file)
+        try:
+            availableRooms = pickle.load(file)
+            roomPrices = pickle.load(file)
+            otherConfigurations = pickle.load(file)
+        
+        except:
+            termcolor.cprint("ERRO ao ler ficheiro das configurações", "red")
 
     for room, price in roomPrices.items():
         print(f"Mudar preço de {termcolor.colored(f"'{room}'", "light_blue")} | Valor atual: {termcolor.colored(f"{price}", "light_blue")}")
@@ -97,28 +98,27 @@ def changeRoomPrices():
 
     if 'error' not in locals():
         with open(CONFIG_FILE, 'wb') as file:
-            for i in range(3):
-                
-                if i == 0:
-                    pickle.dump(availableRooms, file)
-                elif i == 1:
-                    pickle.dump(roomPrices, file)
-                elif i == 2:
-                    pickle.dump(otherConfigurations, file)
+            try:
+                pickle.dump(availableRooms, file)
+                pickle.dump(roomPrices, file)
+                pickle.dump(otherConfigurations, file)
+
+            except:
+                termcolor.cprint("ERRO ao guardar alterações", "red")
+                return
 
         termcolor.cprint("Preços atualizados com sucesso", "light_green")
 
 
 def changeDiscountValue():
     with open(CONFIG_FILE, 'rb') as file:
-        for i in range(3):
-                
-            if i == 0:
-                availableRooms = pickle.load(file)
-            elif i == 1:
-                roomPrices = pickle.load(file)
-            elif i == 2:
-                otherConfigurations = pickle.load(file)
+        try:
+            availableRooms = pickle.load(file)
+            roomPrices = pickle.load(file)
+            otherConfigurations = pickle.load(file)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro das configurações", "red")
 
     print(f"Alterar valor do desconto | Atual {termcolor.colored(f"{otherConfigurations['discount']} %", "light_blue")}")
 
@@ -134,26 +134,24 @@ def changeDiscountValue():
     otherConfigurations['discount'] = newValue
 
     with open(CONFIG_FILE, 'wb') as file:
-        for i in range(3):
-                
-            if i == 0:
-                pickle.dump(availableRooms, file)
-            elif i == 1:
-                pickle.dump(roomPrices, file)
-            elif i == 2:
-                pickle.dump(otherConfigurations, file)
+        try:
+            pickle.dump(availableRooms, file)
+            pickle.dump(roomPrices, file)
+            pickle.dump(otherConfigurations, file)
+
+        except:
+            termcolor.cprint("ERRO ao guardar alterações", "red")
 
 
 def changeMaxNights():
     with open(CONFIG_FILE, 'rb') as file:
-        for i in range(3):
-                
-            if i == 0:
-                availableRooms = pickle.load(file)
-            elif i == 1:
-                roomPrices = pickle.load(file)
-            elif i == 2:
-                otherConfigurations = pickle.load(file)
+        try:
+            availableRooms = pickle.load(file)
+            roomPrices = pickle.load(file)
+            otherConfigurations = pickle.load(file)
+
+        except:
+            termcolor.cprint("ERRO ao carregar ficheiro das configurações", "red")
 
     print(f"Alterar máximo de noites | Atual {termcolor.colored(f"{otherConfigurations['maxNights']}", "light_blue")} noites")
 
@@ -165,11 +163,28 @@ def changeMaxNights():
     otherConfigurations['maxNights'] = newValue
 
     with open(CONFIG_FILE, 'wb') as file:
-        for i in range(3):
-                
-            if i == 0:
-                pickle.dump(availableRooms, file)
-            elif i == 1:
-                pickle.dump(roomPrices, file)
-            elif i == 2:
-                pickle.dump(otherConfigurations, file)
+        try:
+            pickle.dump(availableRooms, file)
+            pickle.dump(roomPrices, file)
+            pickle.dump(otherConfigurations, file)
+
+        except:
+            termcolor.cprint("ERRO ao guardar alterações", "red")
+
+
+def removeAllData():
+    termcolor.cprint("Tem a certeza que deseja apagar todos os dados? (Y/N)", "red")
+
+    option = utils.YesOrNo()
+
+    if option == False:
+        return
+    
+    elif option == True:
+        os.remove(CONFIG_FILE)
+        os.remove(ROOM_FILE)
+        os.remove(STATS_FILE)
+
+        print("Dados apagados com sucesso. Por favor volte a iniciar o programa")
+
+        exit()

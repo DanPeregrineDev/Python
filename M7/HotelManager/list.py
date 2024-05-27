@@ -24,7 +24,7 @@ def listAllRooms():
             rooms = pickle.load(roomsFile)
         
         except:
-            termcolor.cprint("ERRO ao ler ficheiro dos quartos", "red")
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
 
     print("=" * 60)
 
@@ -39,7 +39,7 @@ def listEmptyRooms():
             rooms = pickle.load(roomsFile)
         
         except:
-            termcolor.cprint("ERRO ao ler ficheiro dos quartos", "red")
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
 
     print("=" * 60)
 
@@ -55,7 +55,7 @@ def listOcupiedRooms():
             rooms = pickle.load(roomsFile)
         
         except:
-            termcolor.cprint("ERRO ao ler ficheiro dos quartos", "red")
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
 
     print("=" * 60)
 
@@ -71,7 +71,7 @@ def listToCleanRooms():
             rooms = pickle.load(roomsFile)
         
         except:
-            termcolor.cprint("ERRO ao ler ficheiro dos quartos", "red")
+            termcolor.cprint("ERRO ao carregar ficheiro dos quartos", "red")
 
     print("=" * 60)
 
