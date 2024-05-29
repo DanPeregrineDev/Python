@@ -66,8 +66,6 @@ def main():
             if otherConfigurations['discount'] > 0 and extraDate == 0:
                 termcolor.cprint(f"Desconto de {otherConfigurations['discount']}% aplicado", 'blue')
             
-            stats['totalNumberOfCustomers'] -= len(room['occupants'])
-            
             room['status'] = 'disponível'
             room['cleaned'] = 'Não'
             room['occupants'] = None
